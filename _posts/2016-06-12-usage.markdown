@@ -2,7 +2,7 @@
 layout: post
 title:  "Usage Guide"
 categories: jekyll update
-img: ford-go-bike.png
+img: ford-big-query.png
 categories: two
 ---
 
