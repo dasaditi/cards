@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2016-06-13 10:51:47 +0530
-categories: jekyll update
+title:  "From Probability to Policy- Reducing Crime in North Carolina!"
+date:   2018-11-30 10:51:47 +0530
+categories: Stats Projects
 img: crime.png
 categories: [one, two]
 ---
