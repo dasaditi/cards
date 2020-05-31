@@ -10,4 +10,4 @@ categories: [one, two]
 
 
 
-<embed src="https://sumanbogati.github.io/sample.pdf" type="application/pdf" />
+<embed src="https://dasaditi.github.io/Stats-Regression.pdf" type="application/pdf" />
