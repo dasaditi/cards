@@ -13,6 +13,6 @@ categories: [one, two]
 <!--<embed src="https://dasaditi.github.io/Stats-Regression.pdf" type="application/pdf" width="1000px" height="1000px"/>-->
 Some text
 
-<object data="https://github.com/dasaditi/statistics/blob/master/Regression/Lab3_0806.pdf" width="1000px" height="1000px" type='application/pdf' ></object>
+<object data="https://dasaditi.github.io/pdfs/Stats-Regression.pdf" width="1000px" height="1000px" type='application/pdf' ></object>
 
 Some more text
