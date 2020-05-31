@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "From Probability to Policy!"
+title:  "From Probability to Policy - Reducing Crime in North Carolina"
 date:   2018-11-30 10:51:47 +0530
 categories: Stats Projects
 img: crime.png
