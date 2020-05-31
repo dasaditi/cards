@@ -10,4 +10,4 @@ categories: [one, two]
 
 
 
-<embed src="https://dasaditi.github.io/Stats-Regression.pdf" type="application/pdf" />
+<embed src="https://dasaditi.github.io/Stats-Regression.pdf" type="application/pdf" width="1000px" height="800px"/>
