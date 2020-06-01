@@ -3,7 +3,7 @@ layout: post
 title: "Forest Cover Type Prediction"
 date:   2019-04-13 10:51:47 +0530
 img: forest1.png
-excerpt: "To be done."
+excerpt: "Can we predict the type of tree cover given cartographic data such as elevation, hydrologic, sunlight and soil data? This project attempts to predict the predominant type of tree in sections of wooded areas."
 categories: ML Projects
 ---
 
