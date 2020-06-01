@@ -75,12 +75,12 @@ The azimuth is the angular direction of the sun, measured from north in clockwis
 
 The altitude is the slope or angle of the illumination source above the horizon. The units are in degrees, from 0 (on the horizon) to 90 (overhead). The default is 45 degrees.
 
-<img src="../images/Altitude.gif" alt="Approch" align="center" style="height: 100px;width: 200px;"/>
+<center><img src="../images/Altitude.gif" alt="Approch"  style="height: 100px;width: 200px;"/></center>
 
 ## Modeling Approach
 Here is the overview of our approach in finding the forest covers.  
 
-<img src="../images/FlowDiagramForest1.png" align="center" alt="Approch" style="height: 700px;width: 600px;"/>
+<center><img src="../images/FlowDiagramForest1.png" alt="Approch" style="height: 700px;width: 600px;"/></center>
 
 ## Fetch the dataset
 
