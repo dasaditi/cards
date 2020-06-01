@@ -338,7 +338,7 @@ boxPlot('Cover_Type','Hillshade_3pm')
 ```
 
 
-![png](images/output_30_0.png)
+![png](../images/output_30_0.png)
 
 
 >Looking at the data distribution in the context of class seperation, elevation could be the most significant factor in determining cover type. Also, apart from elevation the rest of the features are almost similarly distributed between CoverType1 and CoverType2.
@@ -374,7 +374,7 @@ histPlot(X_train['Hillshade_3pm'],'darkorange')
 ```
 
 
-![png](images/output_33_0.png)
+![png](../images/output_33_0.png)
 
 
 ### Finding Outliers
@@ -510,7 +510,7 @@ plotRelation(X_train.Aspect,X_train.Hillshade_3pm)
 ```
 
 
-![png](images/output_40_0.png)
+![png](../images/output_40_0.png)
 
 
 255 is brightest light for hillshade and it is directly correlated to Aspect direction. Maybe these two variables can be merged to one with some equtaion.  
@@ -532,7 +532,7 @@ plotRelation(X_train.Slope,X_train.Hillshade_3pm,cmap='PiYG')
 ```
 
 
-![png](images/output_44_0.png)
+![png](../images/output_44_0.png)
 
 
 #### E. Relationship between elevation and distance to everything**  
@@ -556,7 +556,7 @@ plotRelation(X_train.Elevation,X_train.Slope,cmap='PuBuGn')
 ```
 
 
-![png](images/output_46_0.png)
+![png](../images/output_46_0.png)
 
 
 #### F. Soil type
@@ -576,7 +576,7 @@ plt.xticks(rotation=90);
 ```
 
 
-![png](images/output_48_0.png)
+![png](../images/output_48_0.png)
 
 
 >Soil types 7 and 15 do have any records.  Hence they can be deleted.
@@ -616,7 +616,7 @@ sns.heatmap(corrmat,vmax=0.8,square=True);
 ```
 
 
-![png](images/output_54_0.png)
+![png](../images/output_54_0.png)
 
 
 #### H. Correlation Values
@@ -795,7 +795,7 @@ max(scores1)
 
 
 
-![png](images/output_64_1.png)
+![png](../images/output_64_1.png)
 
 
 
@@ -1472,7 +1472,7 @@ Feature selection can be an important part of the machine learning process as it
 
 We will run L1 regularization and Feature Importance with ExtraTreesClassifier first, fetch the important features and re-run the models again to evaluate performance.
 
-<img src="images/FlowDiagramForest2.png" align="center" alt="Feature Selection" style="height: 400px;width: 500px;"/>
+<img src="../images/FlowDiagramForest2.png" align="center" alt="Feature Selection" style="height: 400px;width: 500px;"/>
 
 ### 1. Finding Feature Importance with ExtraTreesClassifier
 ExtraTreesClassifier is a randomized decision tree classifier which samples a random subset of the feature-space when deciding where to make the next split.  Extra trees seem to keep a higher performance in presence of noisy features.
@@ -1550,7 +1550,7 @@ getImportance(etc_final,X_train.columns,"The most important features from ExtraT
 
 
 
-![png](images/output_94_1.png)
+![png](../images/output_94_1.png)
 
 
 **Extract smaller featureset** : We will be using a threshold of 0.01 to fetch the important features only.
@@ -1839,7 +1839,7 @@ max(scores_logreg2)
 
 
 
-![png](images/output_115_1.png)
+![png](../images/output_115_1.png)
 
 
 
@@ -1964,7 +1964,7 @@ print("Accuracy achieved by ensembling",metrics.accuracy_score(y_val,y_pred_ense
 
 
 ## Run PCA to do dimensionality reduction on data set with combined features from feature selection
-<img src="images/FlowDiagramForest3.png" align="center" alt="Feature Selection" style="height: 400px;width: 450px;"/>
+<img src="../images/FlowDiagramForest3.png" align="center" alt="Feature Selection" style="height: 400px;width: 450px;"/>
 
 
 ```python
@@ -2463,7 +2463,7 @@ plot_learning_curve(rf_final, title, dimr_X_train_final_selected, y_train, ylim=
 
 
 
-![png](images/output_137_1.png)
+![png](../images/output_137_1.png)
 
 
 The learning curve above demonstrates the insufficiency of the size of the training set. 
@@ -2580,7 +2580,7 @@ max(scores_logreg3)
 
 
 
-![png](images/output_145_1.png)
+![png](../images/output_145_1.png)
 
 
 
@@ -2611,7 +2611,7 @@ plot_learning_curve(logreg3_l1, title, dimr_X_train_final_selected, y_train, yli
 
 
 
-![png](images/output_147_1.png)
+![png](../images/output_147_1.png)
 
 
 ## Ensemble
