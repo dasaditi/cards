@@ -507,7 +507,7 @@ We do observe some strong correlations as folllows:
 
    4. Elevation and Horizontal Distance to Roadways 
 
-Our hypothesis is that the feature selection process later inn this notebook will allow us to determine which of the highly correlated features should be dropped from our feature set, if any.
+Our hypothesis is that the feature selection process later in this notebook will allow us to determine which of the highly correlated features should be dropped from our feature set, if any.
 
 
 ```python
@@ -730,233 +730,6 @@ print(knnReport)
 3. As seen from the confusion matrix, most wrong classifications are between Cover Type 1 and COver Type 2 and between 3 and 6. 
 4. Removing the outliers has not significantly improvemed the accuracy of the model (tests with outliers included not shown in this notebook.)
 
-### Create baseline KNN submission for Kaggle
-
-
-
-
-```python
-# Read in the test data
-kaggle_df = pd.read_csv('data/test.csv', engine='c')
-kaggle_df.head()
-```
-
-
-
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Id</th>
-      <th>Elevation</th>
-      <th>Aspect</th>
-      <th>Slope</th>
-      <th>Horizontal_Distance_To_Hydrology</th>
-      <th>Vertical_Distance_To_Hydrology</th>
-      <th>Horizontal_Distance_To_Roadways</th>
-      <th>Hillshade_9am</th>
-      <th>Hillshade_Noon</th>
-      <th>Hillshade_3pm</th>
-      <th>...</th>
-      <th>Soil_Type31</th>
-      <th>Soil_Type32</th>
-      <th>Soil_Type33</th>
-      <th>Soil_Type34</th>
-      <th>Soil_Type35</th>
-      <th>Soil_Type36</th>
-      <th>Soil_Type37</th>
-      <th>Soil_Type38</th>
-      <th>Soil_Type39</th>
-      <th>Soil_Type40</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>15121</td>
-      <td>2680</td>
-      <td>354</td>
-      <td>14</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2684</td>
-      <td>196</td>
-      <td>214</td>
-      <td>156</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>15122</td>
-      <td>2683</td>
-      <td>0</td>
-      <td>13</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2654</td>
-      <td>201</td>
-      <td>216</td>
-      <td>152</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>15123</td>
-      <td>2713</td>
-      <td>16</td>
-      <td>15</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2980</td>
-      <td>206</td>
-      <td>208</td>
-      <td>137</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>15124</td>
-      <td>2709</td>
-      <td>24</td>
-      <td>17</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2950</td>
-      <td>208</td>
-      <td>201</td>
-      <td>125</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>15125</td>
-      <td>2706</td>
-      <td>29</td>
-      <td>19</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2920</td>
-      <td>210</td>
-      <td>195</td>
-      <td>115</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 55 columns</p>
-</div>
-
-
-
-
-```python
-# Doing the same data prep steps here as were done to the training data
-# check for missing values in the test data -- none found
-kaggle_df[kaggle_df.isnull().any(axis=1)]
-# Setting the Id as index 
-kaggle_df.set_index('Id',inplace=True)
-
-# drop soil types that were dropped due to no values for them in the training data
-kaggle_df.drop(['Soil_Type7','Soil_Type15'],axis='columns',inplace=True)
-
-# use the absolute value for any Vertical Distance to Hydrology values that are negative
-# just like we did on our training data
-kaggle_df['Vertical_Distance_To_Hydrology'] = abs(kaggle_df['Vertical_Distance_To_Hydrology'])
-
-# Scale the continuous data as we did with the training data
-scaler = preprocessing.StandardScaler()
-
-# scaledColsOrig columns are defined earlier when we scale the training data 
-
-# Thinking fit_transform is appropriate here, instead of using the fit done earlier on the training
-# data, since we have several more observations of test data, and their ranges may be different enough
-# to require a separate fit here
-kaggle_df[scaledColsOrig] = scaler.fit_transform(kaggle_df[scaledColsOrig])
-
-```
-
-
-```python
-# Use knn_orig model created above (k=1)
-
-kaggle_predict_knn_baseline =  knn_orig.predict(kaggle_df)
-kaggle_predict_knn_baseline.shape
-```
-
-
-```python
-# create the table of IDs and predicted cover types for submission file
-kaggle_df.reset_index(inplace=True)
-
-tmp_arr=np.zeros((len(kaggle_predict_knn_baseline),2),dtype=int)
-tmp_arr[:,0]=kaggle_df.Id
-tmp_arr[:,1]=kaggle_predict_knn_baseline
-submit_file = pd.DataFrame({'Id':tmp_arr[:,0],'Cover_Type':tmp_arr[:,1]})
-print(submit_file.shape)
-submit_file.head()
-```
-
-
-```python
-# And write out the csv file
-
-sub_file_csv = submit_file.to_csv(index=False)
-csvfile = open('baselinesubmit.csv', "w", encoding="utf8")   
-csvfile.write(sub_file_csv)
-csvfile.close()
-```
-
 ### 2. Neural Network on the original dataset
 
 
@@ -1008,133 +781,6 @@ nn_pred = nn_pred + 1 # adding one back to compensate for 1 - 7 labels converted
     loss: 0.5928830017173101
     accuracy: 0.7582671957671958
 
-
-### Create Kaggle submission for baseline Neural Network model
-
-
-```python
-# using the data already prepared for the KNN baseline Kaggle submission above, as well as the NN model created above
-# kaggle_predict_nn_baseline =  np.argmax(np.round(model.predict(kaggle_df)),axis=1)
-
-# If running this aftern having run the KNN Kaggle submission above, make sure you rerun
-# the read of the test data set cell and the Kaggle data prep cell before running this cell
-
-kaggle_predict_nn_baseline =  model.predict_classes(kaggle_df)
-kaggle_predict_nn_baseline = kaggle_predict_nn_baseline + 1 # adding one back to compensate for 1 - 7 labels converted to 0 - 6 index in binarizing function
-kaggle_predict_nn_baseline.shape
-```
-
-
-```python
-# create the table of IDs and predicted cover types for submission file
-kaggle_df.reset_index(inplace=True)
-
-tmp_arr=np.zeros((len(kaggle_predict_nn_baseline),2),dtype=int)
-tmp_arr[:,0]=kaggle_df.Id
-tmp_arr[:,1]=kaggle_predict_nn_baseline
-submit_file = pd.DataFrame({'Id':tmp_arr[:,0],'Cover_Type':tmp_arr[:,1]})
-print(submit_file.shape)
-submit_file.head()
-```
-
-
-```python
-# And write out the csv file
-
-sub_file_csv = submit_file.to_csv(index=False)
-csvfile = open('nnbaselinesubmit.csv', "w", encoding="utf8")   
-csvfile.write(sub_file_csv)
-csvfile.close()
-```
-
-### Plotting Learning Curves
-
-
-```python
-# Function defined in Scikit Learn
-
-def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
-                        n_jobs=None, train_sizes=np.linspace(.1, 1.0, 5)):
-    """
-    Generate a simple plot of the test and training learning curve.
-
-    Parameters
-    ----------
-    estimator : object type that implements the "fit" and "predict" methods
-        An object of that type which is cloned for each validation.
-
-    title : string
-        Title for the chart.
-
-    X : array-like, shape (n_samples, n_features)
-        Training vector, where n_samples is the number of samples and
-        n_features is the number of features.
-
-    y : array-like, shape (n_samples) or (n_samples, n_features), optional
-        Target relative to X for classification or regression;
-        None for unsupervised learning.
-
-    ylim : tuple, shape (ymin, ymax), optional
-        Defines minimum and maximum yvalues plotted.
-
-    cv : int, cross-validation generator or an iterable, optional
-        Determines the cross-validation splitting strategy.
-        Possible inputs for cv are:
-          - None, to use the default 3-fold cross-validation,
-          - integer, to specify the number of folds.
-          - :term:`CV splitter`,
-          - An iterable yielding (train, test) splits as arrays of indices.
-
-        For integer/None inputs, if ``y`` is binary or multiclass,
-        :class:`StratifiedKFold` used. If the estimator is not a classifier
-        or if ``y`` is neither binary nor multiclass, :class:`KFold` is used.
-
-        Refer :ref:`User Guide <cross_validation>` for the various
-        cross-validators that can be used here.
-
-    n_jobs : int or None, optional (default=None)
-        Number of jobs to run in parallel.
-        ``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.
-        ``-1`` means using all processors. See :term:`Glossary <n_jobs>`
-        for more details.
-
-    train_sizes : array-like, shape (n_ticks,), dtype float or int
-        Relative or absolute numbers of training examples that will be used to
-        generate the learning curve. If the dtype is float, it is regarded as a
-        fraction of the maximum size of the training set (that is determined
-        by the selected validation method), i.e. it has to be within (0, 1].
-        Otherwise it is interpreted as absolute sizes of the training sets.
-        Note that for classification the number of samples usually have to
-        be big enough to contain at least one sample from each class.
-        (default: np.linspace(0.1, 1.0, 5))
-    """
-    plt.figure()
-    plt.title(title)
-    if ylim is not None:
-        plt.ylim(*ylim)
-    plt.xlabel("Training examples")
-    plt.ylabel("Score")
-    train_sizes, train_scores, test_scores = learning_curve(
-        estimator, X, y, cv=cv, n_jobs=n_jobs, train_sizes=train_sizes)
-    train_scores_mean = np.mean(train_scores, axis=1)
-    train_scores_std = np.std(train_scores, axis=1)
-    test_scores_mean = np.mean(test_scores, axis=1)
-    test_scores_std = np.std(test_scores, axis=1)
-    plt.grid()
-
-    plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
-                     train_scores_mean + train_scores_std, alpha=0.1,
-                     color="r")
-    plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
-                     test_scores_mean + test_scores_std, alpha=0.1, color="g")
-    plt.plot(train_sizes, train_scores_mean, 'o-', color="r",
-             label="Training score")
-    plt.plot(train_sizes, test_scores_mean, 'o-', color="g",
-             label="Cross-validation score")
-
-    plt.legend(loc="best")
-    return plt
-```
 
 ## Feature Engineering
 
@@ -1349,7 +995,7 @@ Feature selection can be an important part of the machine learning process as it
 
 We will run L1 regularization and Feature Importance with ExtraTreesClassifier first, fetch the important features and re-run the models again to evaluate performance.
 
-<img src="../images/FlowDiagramForest2.png" align="center" alt="Feature Selection" style="height: 400px;width: 500px;"/>
+<center><img src="../images/FlowDiagramForest2.png"  alt="Feature Selection" style="height: 400px;width: 500px;"/></center>
 
 ### 1. Finding Feature Importance with ExtraTreesClassifier
 ExtraTreesClassifier is a randomized decision tree classifier which samples a random subset of the feature-space when deciding where to make the next split.  Extra trees seem to keep a higher performance in presence of noisy features.
@@ -1841,7 +1487,7 @@ print("Accuracy achieved by ensembling",metrics.accuracy_score(y_val,y_pred_ense
 
 
 ## Run PCA to do dimensionality reduction on data set with combined features from feature selection
-<img src="../images/FlowDiagramForest3.png" align="center" alt="Feature Selection" style="height: 400px;width: 450px;"/>
+<center><img src="../images/FlowDiagramForest3.png"  alt="Feature Selection" style="height: 400px;width: 450px;"/></center>
 
 
 ```python
@@ -1880,8 +1526,6 @@ var_rslts
 ```
 
 
-
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1996,144 +1640,15 @@ var_rslts
       <td>0.00</td>
       <td>0.988</td>
     </tr>
-    <tr>
-      <th>21</th>
-      <td>0.00</td>
-      <td>0.990</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>0.00</td>
-      <td>0.991</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>0.00</td>
-      <td>0.993</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>0.00</td>
-      <td>0.994</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>0.00</td>
-      <td>0.995</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>0.00</td>
-      <td>0.996</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>0.00</td>
-      <td>0.996</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>0.00</td>
-      <td>0.997</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>0.00</td>
-      <td>0.998</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>0.00</td>
-      <td>0.998</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>0.00</td>
-      <td>0.999</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>0.00</td>
-      <td>0.999</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>0.00</td>
-      <td>0.999</td>
-    </tr>
-    <tr>
-      <th>34</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>35</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>0.00</td>
-      <td>1.000</td>
-    </tr>
+    
   </tbody>
 </table>
-</div>
 
 
 
 
-![png](output_126_1.png)
+
+![png](../images/output_126_1.png)
 
 
 Looks Like most variance (99.5%) is explained once we reach 26 principal components, so let's create training and validation data sets using the first 26 principal components
