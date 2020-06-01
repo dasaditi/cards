@@ -10,7 +10,7 @@ img: forest1.png
 
 </center>
 
-![alt text](images/forest.png "Forest Cover")
+![alt text](../images/forest.png "Forest Cover")
 
 ## Introduction
 Can we predict the type of tree cover given cartographic data such as elevation, hydrologic, sunlight and soil data? 
@@ -81,7 +81,7 @@ The altitude is the slope or angle of the illumination source above the horizon.
 
 ## Modeling Approach
 Here is the overview of our approach in finding the forest covers.
-<img src="images/FlowDiagramForest1.png" align="center" alt="Approch" style="height: 700px;width: 600px;"/>
+<img src="../images/FlowDiagramForest1.png" align="center" alt="Approch" style="height: 700px;width: 600px;"/>
 
 ## Fetch the dataset
 
