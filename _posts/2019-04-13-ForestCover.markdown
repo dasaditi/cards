@@ -734,25 +734,6 @@ print(knnReport)
 
 
 ```python
-# First binarize the labels per Todd's guidance
-def binarizeY(data):
-    binarized_data = np.zeros((data.size,7))
-    for j in range(0,data.size):
-        feature = data[j:j+1]
-        i = feature.astype(np.int64) 
-        binarized_data[j,i-1]=1 # subtracting 1 here since the index values are 0 = 6 while range of labels is 1 - 7
-    return binarized_data
-y_train_orig_b = binarizeY(y_train_orig)
-y_val_orig_b = binarizeY(y_val_orig)
-numClasses = y_train_orig_b[1].size
-print ('Classes = %d' %(numClasses))
-```
-
-    Classes = 7
-
-
-
-```python
 # and let's fit a 2 layer NN
 
 model = Sequential() 
@@ -771,16 +752,6 @@ print('accuracy:', score[1])
 nn_pred = model.predict_classes(X_val_orig)
 nn_pred = nn_pred + 1 # adding one back to compensate for 1 - 7 labels converted to 0 - 6 index in binarizing function
 ```
-
-    WARNING:tensorflow:From C:\Users\jbraun\AppData\Local\Continuum\anaconda3\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
-    Instructions for updating:
-    Colocations handled automatically by placer.
-    WARNING:tensorflow:From C:\Users\jbraun\AppData\Local\Continuum\anaconda3\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
-    Instructions for updating:
-    Use tf.cast instead.
-    loss: 0.5928830017173101
-    accuracy: 0.7582671957671958
-
 
 ## Feature Engineering
 
@@ -1002,61 +973,6 @@ ExtraTreesClassifier is a randomized decision tree classifier which samples a ra
 
 
 ```python
-def getImportance(classifier,cols,title):
-    """ Create a chart of feature importances given a tree classifier."""
-
-    importances = classifier.feature_importances_
-    indices=np.argsort(importances)[::-1][:30]
-    # Plot the feature importances of the forest
-    plt.figure(figsize=(50,20))
-    plt.title(title,fontsize=45)
-    plt.bar(range(30), importances[indices],
-       align="center",alpha=.5,color="BrBG")
-    plt.xticks(range(30), cols[indices], rotation=45, rotation_mode="anchor", ha="right",fontsize=30)
-    plt.yticks(fontsize=30)
-    plt.xlim([-1, 30])
-    plt.show()
-```
-
-
-```python
-# Build a forest and compute the feature importances
-n_estimators = list(range(50, 250,5))
-criterion=['gini','entropy']
-#min_samples_leaf = list(range(5, 25))
-#min_samples_split = list(range(5, 25))
-#max_depth = list(range(8, 50))
-# create a parameter grid: map the parameter names to the values that should be searched
-param_grid = dict(n_estimators=n_estimators, criterion=criterion)
-
-forest = ExtraTreesClassifier(random_state=0)
-grid_etc = RandomizedSearchCV(forest, param_grid, cv=5, scoring="accuracy" ,return_train_score=False)
-grid_etc.fit(X_train, y_train)
-print("The best score: ",grid_etc.best_score_.round(4))
-#Parameter setting that gave the best results on the hold out data.
-print("The best parameter: ",grid_etc.best_params_)
-grid_etc.best_estimator_
-
-```
-
-    The best score:  0.8732
-    The best parameter:  {'n_estimators': 105, 'criterion': 'entropy'}
-
-
-
-
-
-    ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion='entropy',
-               max_depth=None, max_features='auto', max_leaf_nodes=None,
-               min_impurity_decrease=0.0, min_impurity_split=None,
-               min_samples_leaf=1, min_samples_split=2,
-               min_weight_fraction_leaf=0.0, n_estimators=105, n_jobs=None,
-               oob_score=False, random_state=0, verbose=0, warm_start=False)
-
-
-
-
-```python
 #Find Feature importance
 etc_final = ExtraTreesClassifier(n_estimators=grid_etc.best_params_['n_estimators'],
                             criterion=grid_etc.best_params_['criterion'],random_state=0)
@@ -1111,17 +1027,6 @@ grid_etc_selected.best_estimator_
 
     The best score:  0.8758
     The best parameter:  {'n_estimators': 165, 'criterion': 'entropy'}
-
-
-
-
-
-    ExtraTreesClassifier(bootstrap=False, class_weight=None, criterion='entropy',
-               max_depth=None, max_features='auto', max_leaf_nodes=None,
-               min_impurity_decrease=0.0, min_impurity_split=None,
-               min_samples_leaf=1, min_samples_split=2,
-               min_weight_fraction_leaf=0.0, n_estimators=165, n_jobs=None,
-               oob_score=False, random_state=0, verbose=0, warm_start=False)
 
 
 
@@ -1266,23 +1171,6 @@ grid_ada = RandomizedSearchCV(ada, param_grid, cv=3, scoring='accuracy' ,return_
 grid_ada.fit(X_train_final_selected, y_train)
 
 ```
-
-
-
-
-    RandomizedSearchCV(cv=3, error_score='raise-deprecating',
-              estimator=AdaBoostClassifier(algorithm='SAMME',
-              base_estimator=DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=6,
-                max_features=None, max_leaf_nodes=None,
-                min_impurity_decrease=0.0, min_impurity_split=None,
-                min_samples_leaf=1, min_samples_split=2,
-                min_weight_fraction_leaf=0.0, presort=False, random_state=None,
-                splitter='best'),
-              learning_rate=1.0, n_estimators=50, random_state=None),
-              fit_params=None, iid='warn', n_iter=10, n_jobs=None,
-              param_distributions={'n_estimators': [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 310, 320, 330, 340, 350, 360, 370, 380, 390, 400, 410, 420, 430, 440, 450, 460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590, 600, 610, 620, 630, 640], 'learning_rate': [1, 1.5, 2.0]},
-              pre_dispatch='2*n_jobs', random_state=None, refit=True,
-              return_train_score=False, scoring='accuracy', verbose=0)
 
 
 
