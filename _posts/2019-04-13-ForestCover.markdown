@@ -1,14 +1,11 @@
 ---
 layout: post
-title: Forest Cover Type Prediction
+title: "Forest Cover Type Prediction"
+date:   2019-04-13 10:51:47 +0530
 img: forest1.png
+excerpt: "To be done."
+categories: ML Projects
 ---
-<center>
-
-# Forest Cover Type Prediction
-    Spring 2019 
-
-</center>
 
 ![alt text](../images/forest.png "Forest Cover")
 
@@ -36,6 +33,7 @@ The study area includes four wilderness areas located in the Roosevelt National 
 	7. Krummholz  
 
 The training set (15120 observations) contains both features and the Cover_Type.   
+The complete code can be found [here](https://github.com/dasaditi/machineLearning/tree/master/forestCover).
 
 ### Data Fields 
 
@@ -71,13 +69,13 @@ If we know the two sides a, b and the angle between them C, then the cosine of c
 > In short, the Illumination of the patch(Hillshade) is related to alitude of the sun, slope of the terrain and 
 the aspect.More details can be found in [How Hillshade works](http://desktop.arcgis.com/en/arcmap/10.3/tools/spatial-analyst-toolbox/how-hillshade-works.htm).We might have features like Aspect, Slope and HillShade that provides similar information.
 
-<img src="images/Variables.png" alt="Approch" align="center" style="height: 300px;width: 300px;"/>
+<img src="../images/Variables.png" alt="Approch" align="center" style="height: 300px;width: 300px;"/>
 
 The azimuth is the angular direction of the sun, measured from north in clockwise degrees from 0 to 360. An azimuth of 90 degrees is east. The default azimuth is 315 degrees (NW).
 
 The altitude is the slope or angle of the illumination source above the horizon. The units are in degrees, from 0 (on the horizon) to 90 (overhead). The default is 45 degrees.
 
-<img src="images/Altitude.gif" alt="Approch" align="center" style="height: 100px;width: 200px;"/>
+<img src="../images/Altitude.gif" alt="Approch" align="center" style="height: 100px;width: 200px;"/>
 
 ## Modeling Approach
 Here is the overview of our approach in finding the forest covers.
@@ -87,204 +85,12 @@ Here is the overview of our approach in finding the forest covers.
 
 
 ```python
-%matplotlib inline
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.model_selection import train_test_split, learning_curve, ShuffleSplit
-from sklearn.linear_model import SGDClassifier
-from sklearn.ensemble import RandomForestClassifier,ExtraTreesClassifier, GradientBoostingClassifier,AdaBoostClassifier, VotingClassifier
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.preprocessing import StandardScaler
-from sklearn.feature_selection import SelectFromModel
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import learning_curve
-from sklearn.model_selection import ShuffleSplit
-from sklearn import metrics
-import seaborn as sns
-from sklearn import preprocessing
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.cluster import MiniBatchKMeans
-import warnings
-from sklearn.model_selection import RandomizedSearchCV
-from sklearn.decomposition import PCA
-warnings.filterwarnings('ignore')
-
-```
-
-
-```python
-# import the neural network modules
-from keras.models import Sequential 
-from keras.layers import Dense, Dropout, Activation, Conv1D, Conv2D, Flatten, MaxPool2D
-from keras import optimizers
-from keras.wrappers.scikit_learn import KerasClassifier
-```
-
-    Using TensorFlow backend.
-
-
-
-```python
 df = pd.read_csv('data/train.csv', engine='c')
 df.head()
 ```
 
-
-
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Id</th>
-      <th>Elevation</th>
-      <th>Aspect</th>
-      <th>Slope</th>
-      <th>Horizontal_Distance_To_Hydrology</th>
-      <th>Vertical_Distance_To_Hydrology</th>
-      <th>Horizontal_Distance_To_Roadways</th>
-      <th>Hillshade_9am</th>
-      <th>Hillshade_Noon</th>
-      <th>Hillshade_3pm</th>
-      <th>...</th>
-      <th>Soil_Type32</th>
-      <th>Soil_Type33</th>
-      <th>Soil_Type34</th>
-      <th>Soil_Type35</th>
-      <th>Soil_Type36</th>
-      <th>Soil_Type37</th>
-      <th>Soil_Type38</th>
-      <th>Soil_Type39</th>
-      <th>Soil_Type40</th>
-      <th>Cover_Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>2596</td>
-      <td>51</td>
-      <td>3</td>
-      <td>258</td>
-      <td>0</td>
-      <td>510</td>
-      <td>221</td>
-      <td>232</td>
-      <td>148</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>2590</td>
-      <td>56</td>
-      <td>2</td>
-      <td>212</td>
-      <td>-6</td>
-      <td>390</td>
-      <td>220</td>
-      <td>235</td>
-      <td>151</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>2804</td>
-      <td>139</td>
-      <td>9</td>
-      <td>268</td>
-      <td>65</td>
-      <td>3180</td>
-      <td>234</td>
-      <td>238</td>
-      <td>135</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>2785</td>
-      <td>155</td>
-      <td>18</td>
-      <td>242</td>
-      <td>118</td>
-      <td>3090</td>
-      <td>238</td>
-      <td>238</td>
-      <td>122</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>2595</td>
-      <td>45</td>
-      <td>2</td>
-      <td>153</td>
-      <td>-1</td>
-      <td>391</td>
-      <td>220</td>
-      <td>234</td>
-      <td>150</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>5</td>
-    </tr>
-  </tbody>
-</table>
 <p>5 rows × 56 columns</p>
-</div>
+
 
 
 
