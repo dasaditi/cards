@@ -22,7 +22,7 @@ human-caused disturbances, so forest covers are more a result of ecological proc
 practices. 
 
 
-The study area includes four wilderness areas located in the Roosevelt National Forest of northern Colorado. Each observation is a 30m x 30m patch. We are asked to predict an integer classification for the forest cover type. The seven types are:  
+The study area includes four wilderness areas located in the Roosevelt National Forest of northern Colorado. Each observation is a 30m x 30m patch. We will be predicting an integer classification for the forest cover type. The seven types are:  
 
 	1. Spruce/Fir
 	2. Lodgepole Pine  
@@ -115,75 +115,6 @@ df.shape
 
 
 
-```python
-#All columns are Integer
-df.info()
-
-```
-
-    <class 'pandas.core.frame.DataFrame'>
-    RangeIndex: 15120 entries, 0 to 15119
-    Data columns (total 56 columns):
-    Id                                    15120 non-null int64
-    Elevation                             15120 non-null int64
-    Aspect                                15120 non-null int64
-    Slope                                 15120 non-null int64
-    Horizontal_Distance_To_Hydrology      15120 non-null int64
-    Vertical_Distance_To_Hydrology        15120 non-null int64
-    Horizontal_Distance_To_Roadways       15120 non-null int64
-    Hillshade_9am                         15120 non-null int64
-    Hillshade_Noon                        15120 non-null int64
-    Hillshade_3pm                         15120 non-null int64
-    Horizontal_Distance_To_Fire_Points    15120 non-null int64
-    Wilderness_Area1                      15120 non-null int64
-    Wilderness_Area2                      15120 non-null int64
-    Wilderness_Area3                      15120 non-null int64
-    Wilderness_Area4                      15120 non-null int64
-    Soil_Type1                            15120 non-null int64
-    Soil_Type2                            15120 non-null int64
-    Soil_Type3                            15120 non-null int64
-    Soil_Type4                            15120 non-null int64
-    Soil_Type5                            15120 non-null int64
-    Soil_Type6                            15120 non-null int64
-    Soil_Type7                            15120 non-null int64
-    Soil_Type8                            15120 non-null int64
-    Soil_Type9                            15120 non-null int64
-    Soil_Type10                           15120 non-null int64
-    Soil_Type11                           15120 non-null int64
-    Soil_Type12                           15120 non-null int64
-    Soil_Type13                           15120 non-null int64
-    Soil_Type14                           15120 non-null int64
-    Soil_Type15                           15120 non-null int64
-    Soil_Type16                           15120 non-null int64
-    Soil_Type17                           15120 non-null int64
-    Soil_Type18                           15120 non-null int64
-    Soil_Type19                           15120 non-null int64
-    Soil_Type20                           15120 non-null int64
-    Soil_Type21                           15120 non-null int64
-    Soil_Type22                           15120 non-null int64
-    Soil_Type23                           15120 non-null int64
-    Soil_Type24                           15120 non-null int64
-    Soil_Type25                           15120 non-null int64
-    Soil_Type26                           15120 non-null int64
-    Soil_Type27                           15120 non-null int64
-    Soil_Type28                           15120 non-null int64
-    Soil_Type29                           15120 non-null int64
-    Soil_Type30                           15120 non-null int64
-    Soil_Type31                           15120 non-null int64
-    Soil_Type32                           15120 non-null int64
-    Soil_Type33                           15120 non-null int64
-    Soil_Type34                           15120 non-null int64
-    Soil_Type35                           15120 non-null int64
-    Soil_Type36                           15120 non-null int64
-    Soil_Type37                           15120 non-null int64
-    Soil_Type38                           15120 non-null int64
-    Soil_Type39                           15120 non-null int64
-    Soil_Type40                           15120 non-null int64
-    Cover_Type                            15120 non-null int64
-    dtypes: int64(56)
-    memory usage: 6.5 MB
-
-
 #### Determine Missing Values
 
 
@@ -196,49 +127,6 @@ df[df.isnull().any(axis=1)]
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Id</th>
-      <th>Elevation</th>
-      <th>Aspect</th>
-      <th>Slope</th>
-      <th>Horizontal_Distance_To_Hydrology</th>
-      <th>Vertical_Distance_To_Hydrology</th>
-      <th>Horizontal_Distance_To_Roadways</th>
-      <th>Hillshade_9am</th>
-      <th>Hillshade_Noon</th>
-      <th>Hillshade_3pm</th>
-      <th>...</th>
-      <th>Soil_Type32</th>
-      <th>Soil_Type33</th>
-      <th>Soil_Type34</th>
-      <th>Soil_Type35</th>
-      <th>Soil_Type36</th>
-      <th>Soil_Type37</th>
-      <th>Soil_Type38</th>
-      <th>Soil_Type39</th>
-      <th>Soil_Type40</th>
-      <th>Cover_Type</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
 <p>0 rows × 56 columns</p>
 </div>
 
@@ -448,11 +336,6 @@ X_train.loc[unique_index,:].Cover_Type.value_counts()
 
     Total number of outliers:  144
     Total number of outliers by cover type: 
-
-
-
-
-
     5    74
     2    32
     1    21
@@ -477,16 +360,9 @@ Before doing the modeling we removed the outliers
 # Let's see if deleting the outliers helps or not
 X_train.drop(unique_index,axis='rows',inplace=True)
 y_train.drop(unique_index,axis='rows',inplace=True)
-y_train.shape
+
 ```
-
-
-
-
-    (11962,)
-
-
-
+    
 **C. Scatterplots, comparsion among the independent variable.**  
 **Aspect vs. Hillshade** Aspect is the orientation of slope, measured clockwise in degrees from 0 to 360, where 0 is north-facing, 90 is east-facing, 180 is south-facing, and 270 is west-facing. Let's look at aspect vs Hillshade .
 
@@ -623,13 +499,13 @@ sns.heatmap(corrmat,vmax=0.8,square=True);
 #### H. Correlation Values
 We do observe some strong correlations as folllows: 
 
-$\hspace{10mm}$   1. Aspect is highly correlated to Hillshade_9am and Hillshade_3pm
+   1. Aspect is highly correlated to Hillshade_9am and Hillshade_3pm
 
-$\hspace{10mm}$   2. Horizontal distance to hydrology is highly correlated to Vertical Distance to Hydrology
+   2. Horizontal distance to hydrology is highly correlated to Vertical Distance to Hydrology
 
-$\hspace{10mm}$   3. Slope and Hillshade_Noon
+   3. Slope and Hillshade_Noon
 
-$\hspace{10mm}$   4. Elevation and Horizontal Distance to Roadways 
+   4. Elevation and Horizontal Distance to Roadways 
 
 Our hypothesis is that the feature selection process later inn this notebook will allow us to determine which of the highly correlated features should be dropped from our feature set, if any.
 
