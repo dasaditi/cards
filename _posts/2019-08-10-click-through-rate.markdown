@@ -107,31 +107,31 @@ To explain the understanding of math calculations behind this , we randomly pick
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>1</td>
       <td>2</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>2</td>
       <td>4</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
     </tr>
     <tr>
-       <th>1</th>
+       <td>1</td>
        <td>0</td>
        <td>2</td>
        <td>0</td>
      </tr>
      <tr>
-       <th>1</th>
+       <td>1</td>
        <td>3</td>
        <td>6</td>
        <td>0</td>
