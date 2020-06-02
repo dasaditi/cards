@@ -73,20 +73,16 @@ In our implementaion, regularization can be turned on by setting parameters `reg
 
 To explain the understanding of math calculations behind this , we randomly pick 5 samples from train.txt as a toy example with two numeric features (`x1`,`x2`) and one 1 hot encoded categorical column `x3` 
 
- y | x1 | x2 | x3 
----|----|----|----
- 0 | 1  | 2  | 1  
- 0 | 2  | 4  | 1  
- 1 | 1  | 0  | 1  
- 1 | 0  | 2 | 0  
- 1 | 3  | 6 | 0  
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+|  y | x1  | x2  | x3  |  
+|---|---|---|---|---|
+|  0 |  1 |   2|   1|  
+|   0|   2|  4 |   1| 
+|   1|  1 |   0|  1 |
+|   1|   0|  2 |  0 |   
+|  1 |   3|   6|   0|   
 
-The logistic regression model makes a prediction as to the probability of input belonging to the default class (class 1). If the probabilty is greater than 0.5, it classifies as default class 0; or else it is class 0.
+    The logistic regression model makes a prediction as to the probability of input belonging to the default class (class 1). If the probabilty is greater than 0.5, it classifies as default class 0; or else it is class 0.
 
 For this toy example, we need to estimthe 4 coefficients ($w_0$, $w_1$, $w_2$, and $w_3$). The job of our model is to discover the best values for all coefficients based on training dataset. The output will then be transformed into a probability using logistic function.
 
