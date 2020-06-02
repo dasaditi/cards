@@ -7,59 +7,8 @@ excerpt: "The goal of this analysis to develop a working scalable predictive mod
 ---
 
 
-
-<h1> W261 Final Project - Clickthrough Rate Prediction</h1>
-
-
 ## Table of Contents
 
-* __Notebook Setup__
-* __Section 1__ - Question Formulation
-* __Section 2__ - Algorithm Explanation
-* __Section 3__ - EDA & Challenges
-* __Section 4__ - Algorithm Implementation
-* __Section 5__ - Course Concepts
-
-# Notebook Setup
-
-
-```python
-# imports
-import re
-import ast
-import time
-import numpy as np
-import pandas as pd
-import seaborn as sns
-import networkx as nx
-import matplotlib.pyplot as plt
-import pyspark
-from pyspark.sql.functions import isnan, when, count, col ,trim,struct, udf
-import pyspark.sql.functions as F
-from pyspark.sql.types import IntegerType
-from pyspark.sql import Window
-from pyspark.sql.types import DoubleType
-import math
-from pyspark.ml.feature import VectorAssembler
-from pyspark.ml.feature import StandardScaler
-from pyspark.ml.feature import FeatureHasher
-from pyspark.ml.feature import PCA as PCAml
-from pyspark.ml import Pipeline
-from pyspark.ml.classification import LogisticRegression
-```
-
-
-```python
-%reload_ext autoreload
-%autoreload 2
-```
-
-
-```python
-# store path to notebook
-PWD = !pwd
-PWD = PWD[0]
-```
 
 
 ```python
@@ -143,13 +92,13 @@ In our implementaion, regularization can be turned on by setting parameters `reg
 
 To explain the understanding of math calculations behind this , we randomly pick 5 samples from train.txt as a toy example with two numeric features (`x1`,`x2`) and one 1 hot encoded categorical column `x3` 
 
-| y | x1 | x2 | x3 |
-|---|----|----|----|
-| 0 | 1  | 2  | 1  |
-| 0 | 2  | 4  | 1  |
-| 1 | 1  | 0  | 1  |
-| 1 | 0  | 2 | 0  |
-| 1 | 3  | 6 | 0  |
+ y | x1 | x2 | x3 
+---|----|----|----
+ 0 | 1  | 2  | 1  
+ 0 | 2  | 4  | 1  
+ 1 | 1  | 0  | 1  
+ 1 | 0  | 2 | 0  
+ 1 | 3  | 6 | 0  
 
 The logistic regression model makes a prediction as to the probability of input belonging to the default class (class 1). If the probabilty is greater than 0.5, it classifies as default class 0; or else it is class 0.
 
@@ -735,7 +684,7 @@ plt.show()
 ```
 
 
-![png](images/output_45_0.png)
+![png](../images/output_45_0.png)
 
 
 We noticed that a few variables are relatively correlated. For example `I7` and `I11`, `I4` and `I8`, `I14` and `I13`, `I1` and `I10`, `I8` and `I13` have correlation coefficients greater than 0.4, with highest correlation of 0.71. We will take one of the three actions listed above before running a logistic regression model. 
