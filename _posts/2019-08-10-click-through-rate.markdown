@@ -74,14 +74,6 @@ In our implementaion, regularization can be turned on by setting parameters `reg
 To explain the understanding of math calculations behind this , we randomly pick 5 samples from train.txt as a toy example with two numeric features (`x1`,`x2`) and one 1 hot encoded categorical column `x3` 
 
 
-|  y   | x1  | x2  | x3  |  
-|---|---|---|---|---|
-|  0 |  1 |   2|   1|  
-|   0|   2|  4 |   1| 
-|   1|  1 |   0|  1 |
-|   1|   0|  2 |  0 |   
-|  1 |   3|   6|   0|   
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -335,7 +327,15 @@ print(f'... logistic model trained in {time.time() - start} seconds.')
     ... logistic model trained in 1.2811481952667236 seconds.
 
 
-# Section 3 - EDA & Challenges
+# Section 3 - Dataset:
+
+The data for this project are available here:  
+http://labs.criteo.com/2014/09/kaggle-contest-dataset-now-available-academic-use/
+
+Read more about the data at the Kaggle competition website here:  
+https://www.kaggle.com/c/criteo-display-ad-challenge
+
+# Section 4 - EDA & Challenges
 
 ### 3.1 Get the data
 
