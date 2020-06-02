@@ -604,7 +604,9 @@ missing_summary[missing_summary.missing_pct>0].sort_values(['missing_pct'], asce
 
 
 
-24 of 39 features have missing values. Some features such as `I12`, `C22` have around 76.5% missing values. The target variable doesn't have any missing values, which is important, otherwise we would have to remove the rows where the target variable were missing. How we handle this challenge of missing values is discussed further in Section 3.9 Summary of Challenges. 
+24 of 39 features have missing values. Some features such as `I12`, `C22` have around 76.5% missing values. The target variable doesn't have any missing values, which is important, otherwise we would have to remove the rows where the target variable were missing. How we handle this challenge of missing values is discussed further in 
+
+# Section 3.9 Summary of Challenges. 
 
 Below we create a list of features with missing values, which will be used later when we apply missing value treatment.
 
