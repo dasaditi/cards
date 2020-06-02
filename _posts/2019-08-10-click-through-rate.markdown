@@ -74,7 +74,7 @@ In our implementaion, regularization can be turned on by setting parameters `reg
 To explain the understanding of math calculations behind this , we randomly pick 5 samples from train.txt as a toy example with two numeric features (`x1`,`x2`) and one 1 hot encoded categorical column `x3` 
 
 
-|  y | x1  | x2  | x3  |  
+|  y   | x1  | x2  | x3  |  
 |---|---|---|---|---|
 |  0 |  1 |   2|   1|  
 |   0|   2|  4 |   1| 
@@ -82,7 +82,65 @@ To explain the understanding of math calculations behind this , we randomly pick
 |   1|   0|  2 |  0 |   
 |  1 |   3|   6|   0|   
 
-    The logistic regression model makes a prediction as to the probability of input belonging to the default class (class 1). If the probabilty is greater than 0.5, it classifies as default class 0; or else it is class 0.
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+    
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>y</th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>x3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+       <th>1</th>
+       <td>0</td>
+       <td>2</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <th>1</th>
+       <td>3</td>
+       <td>6</td>
+       <td>0</td>
+     </tr>
+  </tbody>
+</table>
+</div>
+
+The logistic regression model makes a prediction as to the probability of input belonging to the default class (class 1). If the probabilty is greater than 0.5, it classifies as default class 0; or else it is class 0.
 
 For this toy example, we need to estimthe 4 coefficients ($w_0$, $w_1$, $w_2$, and $w_3$). The job of our model is to discover the best values for all coefficients based on training dataset. The output will then be transformed into a probability using logistic function.
 
