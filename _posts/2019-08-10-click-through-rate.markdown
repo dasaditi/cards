@@ -7,25 +7,6 @@ excerpt: "The goal of this analysis to develop a working scalable predictive mod
 ---
 
 
-## Table of Contents
-
-
-
-```python
-# start Spark Session
-from pyspark.sql import SparkSession
-app_name = "finalProj_notebook"
-master = "local[*]"
-config = pyspark.SparkConf().setAll([('spark.executor.memory', '16g'), ('spark.executor.cores', '6'), ('spark.cores.max', '6'), ('spark.driver.memory','16g'), ('spark.local.dir', '/sparkTemp')])
-spark = SparkSession\
-        .builder\
-        .config(conf=config)\
-        .appName(app_name)\
-        .master(master)\
-        .getOrCreate()
-sc = spark.sparkContext
-```
-
 # Section 1 - Question Formulation
 
 The goal of this analysis to develop a working scalable predictive model that helps advertising technologies programmatically determine who to show a specific ad, with the goal of maximizing clicks. This analysis is important because advertising platforms seek to optimize the success of display ads for their clients, and their bottom line is improved if more ad viewers are clicking on ads. Companies generally care about click-through-rates (CTR) because it results in more user traffic to their business application, resulting in higher revenue. In advertising platforms, the pricing structure is also often based on clicks rather than ad views, so increasing CTR is economical. In this analysis, we seek to answer the following question:  
@@ -99,6 +80,11 @@ To explain the understanding of math calculations behind this , we randomly pick
  1 | 1  | 0  | 1  
  1 | 0  | 2 | 0  
  1 | 3  | 6 | 0  
+
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
 
 The logistic regression model makes a prediction as to the probability of input belonging to the default class (class 1). If the probabilty is greater than 0.5, it classifies as default class 0; or else it is class 0.
 
