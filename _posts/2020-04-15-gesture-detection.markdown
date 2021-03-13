@@ -745,49 +745,35 @@ processing with OpenPose and inference.
 
 ## Conclusion and Future Work
 
-
 In this paper, we proposed a novel approach of converting videos to a
 2-d image of optical flow and run a neural network classifier for
 dynamic gesture recognition. However, there is still scope for
 improvements in this project. We would like to do further research on
 the following areas:
 
--   We currently track 15 key points for hand and body. We convert them
-
-into three color channels. Instead we plan to use 15 different channels
-for each keypoint
-
-and pass it through EfficientNet as a depth parameter.
+-   We currently track 15 key points for hand and body. We convert them into three color channels. Instead we plan to use 15 different channels for each keypoint and pass it through EfficientNet as a depth parameter.
 
 -   Run our dataset through CNN-LSTM model .The videos needs to be
-    > converted into multiple frames which then goes through a CNN model
-    > to get the featureset and then run LSTM on each frame one by one
-    > to track the action. We would like to analyse if we get any
-    > performance improvement over the Optical Flow model.
-
-<!-- -->
+     converted into multiple frames which then goes through a CNN model
+     to get the featureset and then run LSTM on each frame one by one
+     to track the action. We would like to analyse if we get any
+     performance improvement over the Optical Flow model.
 
 -   Currently the entire data set is stored in S3. We want to enhance it
-    > further and try distributed storage .
+     further and try distributed storage .
 
-<!-- -->
 
 -   Moving the OpenPose processing and prediction to cloud while TX2
-    > only captures the frame might improve the inference time
-    > significantly.
+    only captures the frame might improve the inference time significantly.
 
 ## References
 
-
-\[1\]
-
-[[https://link.springer.com/chapter/10.1007/978-94-015-8935-2\_10]{.underline}](https://link.springer.com/chapter/10.1007/978-94-015-8935-2_10)
+1. [[https://link.springer.com/chapter/10.1007/978-94-015-8935-2\_10]{.underline}](https://link.springer.com/chapter/10.1007/978-94-015-8935-2_10)
 \| Thad Starner and Alex Pentland "Real-Time American Sign Language
 Recognition from Video Using Hidden Markov Models", *The Media
 Laboratory Massachusetts Institute of Technology*
 
-\[2\]
-[[https://www.researchgate.net/publication/328135251\_American\_Sign\_Language\_Alphabet\_Recognition\_Using\_Convolutional\_Neural\_Networks\_with\_Multiview\_Augmentation\_and\_Inference\_Fusion]{.underline}](https://www.researchgate.net/publication/328135251_American_Sign_Language_Alphabet_Recognition_Using_Convolutional_Neural_Networks_with_Multiview_Augmentation_and_Inference_Fusion)
+2. [[https://www.researchgate.net/publication/328135251\_American\_Sign\_Language\_Alphabet\_Recognition\_Using\_Convolutional\_Neural\_Networks\_with\_Multiview\_Augmentation\_and\_Inference\_Fusion]{.underline}](https://www.researchgate.net/publication/328135251_American_Sign_Language_Alphabet_Recognition_Using_Convolutional_Neural_Networks_with_Multiview_Augmentation_and_Inference_Fusion)
 \| Wenjin Taoa, Ming C. Leu, Zhaozheng Yin, "American Sign Language
 Alphabet Recognition Using Convolutional Neural Networks with Multiview
 Augmentation and Inference Fusion, Department of Mechanical and
@@ -795,56 +781,45 @@ Aerospace Engineering", *Missouri University of Science and Technology,
 Department of Computer Science, Missouri University of Science and
 Technology*
 
-\[3\]
-
-[[https://arxiv.org/pdf/1810.11438.pdf]{.underline}](https://arxiv.org/pdf/1810.11438.pdf)
+3. [[https://arxiv.org/pdf/1810.11438.pdf]{.underline}](https://arxiv.org/pdf/1810.11438.pdf)
 \| Bowen Shi et al., "AMERICAN SIGN LANGUAGE FINGERSPELLING RECOGNITION
 IN THE WILD", *Toyota Technological Institute at Chicago, USA
 2University of Chicago, USA*
 
-\[4\]
-
-[[https://arxiv.org/pdf/1901.11164.pdf]{.underline}](https://arxiv.org/pdf/1901.11164.pdf)
+4. [[https://arxiv.org/pdf/1901.11164.pdf]{.underline}](https://arxiv.org/pdf/1901.11164.pdf)
 \| Cleison Correia de Amorim et al, "Spatial-Temporal Graph
 Convolutional Networks for Sign-Language Recognition", *Centro de
 Informatica Universidade Federal de Pernambuco*
 
-\[5\]
-[[https://ieeexplore.ieee.org/abstract/document/6164868]{.underline}](https://ieeexplore.ieee.org/abstract/document/6164868)
+5. [[https://ieeexplore.ieee.org/abstract/document/6164868]{.underline}](https://ieeexplore.ieee.org/abstract/document/6164868)
 \| Mahbub, Upal, Hafiz Imtiaz, and Md Atiqur Rahman Ahad. \"An optical
 flow based approach for action recognition.\" *14th International
 Conference on Computer and Information Technology (ICCIT 2011)*. IEEE,
 2011.
 
-\[6\]
-[[http://openaccess.thecvf.com/content\_cvpr\_2017/html/Ilg\_FlowNet\_2.html]{.underline}](http://openaccess.thecvf.com/content_cvpr_2017/html/Ilg_FlowNet_2.html)
+6. [[http://openaccess.thecvf.com/content\_cvpr\_2017/html/Ilg\_FlowNet\_2.html]{.underline}](http://openaccess.thecvf.com/content_cvpr_2017/html/Ilg_FlowNet_2.html)
 \| Ilg, Eddy, et al. \"Flownet 2.0: Evolution of optical flow estimation
 with deep networks.\" *Proceedings of the IEEE conference on computer
 vision and pattern recognition*. 2017.
 
-\[7\]
-[[https://www.dgp.toronto.edu/\~donovan/stabilization/opticalflow.pdf]{.underline}](https://www.dgp.toronto.edu/~donovan/stabilization/opticalflow.pdf)
+7. [[https://www.dgp.toronto.edu/\~donovan/stabilization/opticalflow.pdf]{.underline}](https://www.dgp.toronto.edu/~donovan/stabilization/opticalflow.pdf)
 \| O'Donovan, Peter. \"Optical flow: Techniques and applications.\"
 *International Journal of Computer Vision* (2005): 1-26.
 
-\[8\]
-[[https://www.researchgate.net/publication/233979332\_Application\_of\_Optical\_Flow\_in\_Automation]{.underline}](https://www.researchgate.net/publication/233979332_Application_of_Optical_Flow_in_Automation)
+8. [[https://www.researchgate.net/publication/233979332\_Application\_of\_Optical\_Flow\_in\_Automation]{.underline}](https://www.researchgate.net/publication/233979332_Application_of_Optical_Flow_in_Automation)
 \| Mohamed, Mahmoud. (2012). Application of Optical Flow in Automation.
 
-\[9\]
-[[https://arxiv.org/pdf/1712.08416.pdf]{.underline}](https://arxiv.org/pdf/1712.08416.pdf)
+9.[[https://arxiv.org/pdf/1712.08416.pdf]{.underline}](https://arxiv.org/pdf/1712.08416.pdf)
 \| Sevilla-Lara, Laura, et al. \"On the integration of optical flow and
 action recognition.\" *German Conference on Pattern Recognition*.
 Springer, Cham, 2018.
 
-\[10\]
-[[https://link.springer.com/chapter/10.1007%2F978-981-10-7895-8\_31]{.underline}](https://link.springer.com/chapter/10.1007%2F978-981-10-7895-8_31)
+10.[[https://link.springer.com/chapter/10.1007%2F978-981-10-7895-8\_31]{.underline}](https://link.springer.com/chapter/10.1007%2F978-981-10-7895-8_31)
 \| Gupta, Arpan, and M. Sakthi Balan. \"Action Recognition from Optical
 Flow Visualizations.\" *Proceedings of 2nd International Conference on
 Computer Vision & Image Processing*. Springer, Singapore, 2018.
 
-\[11\]
-[[https://books.google.com/books?id=LPm3DQAAQBAJ&pg=PA506&lpg=PA506&dq=cv2.calcopticalflowpyrlk()+why+pyramids&source=bl&ots=2vPoWibcz9&sig=ACfU3U3KL597PabDZC\_O3tYvSS404fmoLw&hl=en&sa=X&ved=2ahUKEwjr24ruy-LoAhWLQs0KHd1LB0kQ6AEwBnoECAwQKQ\#v=onepage&q=cv2.calcopticalflowpyrlk()%20why%20pyramids&f=false]{.underline}](https://books.google.com/books?id=LPm3DQAAQBAJ&pg=PA506&lpg=PA506&dq=cv2.calcopticalflowpyrlk()+why+pyramids&source=bl&ots=2vPoWibcz9&sig=ACfU3U3KL597PabDZC_O3tYvSS404fmoLw&hl=en&sa=X&ved=2ahUKEwjr24ruy-LoAhWLQs0KHd1LB0kQ6AEwBnoECAwQKQ#v=onepage&q=cv2.calcopticalflowpyrlk()%20why%20pyramids&f=false)
+11. [[https://books.google.com/books?id=LPm3DQAAQBAJ&pg=PA506&lpg=PA506&dq=cv2.calcopticalflowpyrlk()+why+pyramids&source=bl&ots=2vPoWibcz9&sig=ACfU3U3KL597PabDZC\_O3tYvSS404fmoLw&hl=en&sa=X&ved=2ahUKEwjr24ruy-LoAhWLQs0KHd1LB0kQ6AEwBnoECAwQKQ\#v=onepage&q=cv2.calcopticalflowpyrlk()%20why%20pyramids&f=false]{.underline}](https://books.google.com/books?id=LPm3DQAAQBAJ&pg=PA506&lpg=PA506&dq=cv2.calcopticalflowpyrlk()+why+pyramids&source=bl&ots=2vPoWibcz9&sig=ACfU3U3KL597PabDZC_O3tYvSS404fmoLw&hl=en&sa=X&ved=2ahUKEwjr24ruy-LoAhWLQs0KHd1LB0kQ6AEwBnoECAwQKQ#v=onepage&q=cv2.calcopticalflowpyrlk()%20why%20pyramids&f=false)
 \| Kaehler, Adrian, and Gary Bradski. *Learning OpenCV 3: computer
 vision in C++ with the OpenCV library*. \" O\'Reilly Media, Inc.\",
 2016.
