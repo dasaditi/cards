@@ -80,15 +80,11 @@ gloves at all times.
  A more "model-based approach" uses hidden markov models (HMMs) with
  the assumption that only coarse grained features of hand-shape,
  orientation and trajectory are sufficient to produce reasonably
- accurate results.
-
- Thad Starner and Alex Pentland\[1\] is a notable reference in this
+ accurate results.Thad Starner and Alex Pentland\[1\] is a notable reference in this
  area.<br>
     
  Most of the modern work in this area involves capturing images and
- extracting features using Convolutional Neural Networks.
-
- For e.g. Tao, Leu and Yin\[2\] use a CNN model with multi view
+ extracting features using Convolutional Neural Networks.For e.g. Tao, Leu and Yin\[2\] use a CNN model with multi view
  augmentation and inference fusion. The main emphasis here is on depth
  images which contain distance information from the camera plane to the
  objects in camera view. A lot of image transformation techniques are
