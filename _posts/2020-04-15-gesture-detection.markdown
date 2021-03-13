@@ -375,27 +375,27 @@ to code)
 But this does not resolve the three issues we articulated above, so we
 decided to look to different methods for optical flow creation.
 
-**[OpenPose for Feature Extraction]{.underline}**
+### OpenPose for Feature Extraction
 
 OpenPose is an open source package that provides "real-time multi-person
 keypoint detection for body, face, hands, and foot estimation".
-([[link]{.underline}](https://github.com/CMU-Perceptual-Computing-Lab/openpose))
+([link](https://github.com/CMU-Perceptual-Computing-Lab/openpose))
 
 We used OpenPose to estimate body and hand movement. OpenPose tracks 25
 key points on the body and 21 key points on each hand.
 
 OpenPose returns two types of files for each video processed: a skeleton
 video and a series of JSON files, one for each frame
-([[link]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/openpose_AGAIN_c9_000000000000_keypoints.json)
+([link](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c9_000000000000_keypoints.json)
 to an example JSON file).
 
 Below are the skeleton videos that correspond to the two optical flow
 examples above:
 
--   [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/openpose\_AGAIN\_c9\_skeleton.mov]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/openpose_AGAIN_c9_skeleton.mov)
+-   [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/openpose\_AGAIN\_c9\_skeleton.mov]{.underline}](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c9_skeleton.mov)
     > (have to download the .mov to view it)
 
--   [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/openpose\_AGAIN\_c4\_skeleton.mov]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/openpose_AGAIN_c4_skeleton.mov)
+-   [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/openpose\_AGAIN\_c4\_skeleton.mov]{.underline}](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c4_skeleton.mov)
     > (have to download the .mov to view it)
 
 As you can see, while OpenCV had trouble producing sensible optical flow
