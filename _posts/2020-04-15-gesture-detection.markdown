@@ -711,7 +711,7 @@ are compatible with cuda 10.0 and jetpack 4.3. The below figure shows
 the different components that are installed in TX2 through docker
 containers .
 
-<center><img src="../images/gs6.png"  style="height:400px;width:400px;"/></center>
+<center><img src="../images/gs6.png"  style="height:400px;width:600px;"/></center>
 
 OpenCV has been optimized to run on cuda enabled GPU devices. OpenPose
 has also been optimized for speed to use the BODY\_25 caffe model and a
@@ -734,7 +734,7 @@ Openpose on the other hand needs a minimum of 4.5 GB to run basic body
 pose with BODY\_25 model and with hand detection keypoints it needs
 further more memory.
 
-<center><img src="../images/gs7.png"  style="height:400px;width:400px;"/></center>
+<center><img src="../images/gs7.png"  style="height:400px;width:600px;"/></center>
 
 Hence, many times during inference we faced Out Of Memory exceptions and
 slow rendering/processing of frames. As a future work we would like to
