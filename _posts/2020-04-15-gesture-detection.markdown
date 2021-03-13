@@ -94,40 +94,35 @@ gloves at all times.
  feature extraction with a fully connected layer and a softmax function
  for classification.
 
-b.  **Finger spelling sequence recognition from videos**
+### B. Finger spelling sequence recognition from videos
 
-> ![](media/image11.png){width="2.4739588801399823in"
-> height="1.516570428696413in"}![](media/image9.png){width="2.4479166666666665in"
-> height="1.5260422134733158in"}
->
-> As per the ideas presented by Shi, Del Rio \[3\] and others, most of
-> the research done in this area involves a sequence model which
-> captures the temporal nature of the data. Models involve a LSTM with
-> features developed from a CNN. Also, in most cases, images from a
-> dataset like imagenet pertained with models like VGG-16 have been
-> effectively used.
+<center><img src="../images/gs2.png" alt="spelling recognition" style="height: 300px;width: 300px;"/></center>
 
-c.  **Word level sign language action classification from videos**
+ As per the ideas presented by Shi, Del Rio \[3\] and others, most of
+ the research done in this area involves a sequence model which
+ captures the temporal nature of the data. Models involve a LSTM with
+ features developed from a CNN. Also, in most cases, images from a
+ dataset like imagenet pertained with models like VGG-16 have been
+ effectively used.
 
-![](media/image12.png){width="4.036458880139983in"
-height="2.8366819772528435in"}
+### C. Word level sign language action classification from videos
 
-> This category of sign language interpretation involves using videos
-> which indicate an action. We do not use finger spelling here, but
-> rather an action which directly corresponds with the word being
-> indicated. For e.g. the word "BICYCLE" (a noun) is indicated as above.
-> Similarly words like CHAT, RUN, TALK have their corresponding actions.
->
-> The main article researched was "Spatial-Temporal Graph Convolutional
-> Networks for Sign Language Recognition" by Amorium and others\[4\] in
-> which the authors propose a propose a new approach of Spatial-Temporal
-> Graph Convolutional Network to sign language recognition based on the
-> human skeletal movements.
->
-> The method uses graphs to capture the signs dynamics in two
-> dimensions, spatial and temporal, considering the complex aspects of
-> the language. Also, the dataset mentioned and used in the paper
-> (ASLLVD dataset) is the primary dataset used in the project.
+<center><img src="../images/gs3.png" alt="word level action" style="height: 300px;width: 300px;"/></center>
+
+This category of sign language interpretation involves using videos which indicate an action. We do not use finger spelling here, but rather an action which directly corresponds with the word being
+ indicated. For e.g. the word "BICYCLE" (a noun) is indicated as above.
+ Similarly words like CHAT, RUN, TALK have their corresponding actions.
+
+ The main article researched was "Spatial-Temporal Graph Convolutional
+ Networks for Sign Language Recognition" by Amorium and others\[4\] in
+ which the authors propose a propose a new approach of Spatial-Temporal
+ Graph Convolutional Network to sign language recognition based on the
+ human skeletal movements.
+
+ The method uses graphs to capture the signs dynamics in two
+ dimensions, spatial and temporal, considering the complex aspects of
+ the language. Also, the dataset mentioned and used in the paper
+ (ASLLVD dataset) is the primary dataset used in the project.
 
 ## Datasets
 
