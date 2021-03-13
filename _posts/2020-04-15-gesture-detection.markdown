@@ -229,31 +229,31 @@ The prior studies have shown that optical flow contains rich temporal
 information and can potentially be used as an input for action
 recognition.
 
-**[Optical Flow in OpenCV]{.underline}**
+### Optical Flow in OpenCV  
 
 OpenCV provides a two-step process to track feature points in a video.
 
-1\. Detect some Shi-Tomasi corner points using
+1. Detect some Shi-Tomasi corner points using
 \`cv2.goodFeaturesToTrack()\`
 
-2\. Track points of interests identified in Step 1 using
+2. Track points of interests identified in Step 1 using
 \`cv2.calcOpticalFlowPyrLK()\`, which implements Lucas-Kanade optical
-flow estimation method
+flow estimation method.
 
 There are three key parameters in
-\`[[cv2.goodFeaturesToTrack()]{.underline}](https://docs.opencv.org/2.4/modules/imgproc/doc/feature_detection.html?highlight=goodfeaturestotrack#goodfeaturestotrack)\`
+\[cv2.goodFeaturesToTrack()]{.underline}](https://docs.opencv.org/2.4/modules/imgproc/doc/feature_detection.html?highlight=goodfeaturestotrack#goodfeaturestotrack)\`
 that we can specify to increase or decrease the number of key points
 detected:
 
--   \`maxCorners\`
+-   *maxCorners*
 
     -   Definition: Maximum number of corners to return. If there are
-        > more corners than are found, the strongest of them is
-        > returned.
+         more corners than are found, the strongest of them is
+         returned.
 
     -   Effect: Increasing this parameter increases the number of
-        > features returned, subject to meeting the requirements
-        > specified by \`qualityLevel\` and \`minDistance\`.
+        features returned, subject to meeting the requirements
+        specified by \`qualityLevel\` and \`minDistance\`.
 
 -   \`qualityLevel\`
 
