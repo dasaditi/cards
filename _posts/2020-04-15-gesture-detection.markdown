@@ -346,8 +346,8 @@ in the first example as well as when the signer's right hand moved in
 front of her body in the second example. This issue was observed in
 almost all videos we processed.
 
-We tried different sets of parameters in \`cv2.goodFeaturesToTrack()\`
-and \`cv2.calcOpticalFlowPyrLK()\` (discussed at the beginning of the
+We tried different sets of parameters in *cv2.goodFeaturesToTrack()*
+and *cv2.calcOpticalFlowPyrLK()* (discussed at the beginning of the
 section) to improve the optical flow estimation in OpenCV, but we were
 unable to produce satisfactory results.
 
@@ -361,15 +361,15 @@ is a huge drawback since we need a robust representation of motions in
 Side note: for some videos, there are other background objects that
 interfere with the optical flow estimation. If the object isn't directly
 behind the signer, we can restrict the features detected to be within
-the range of the signer's upper body. We tried using \`
-haarcascade\_upperbody.xml\` to detect upper body but it was unable to
+the range of the signer's upper body. We tried using *
+haarcascade\_upperbody.xml* to detect upper body but it was unable to
 detect the upper body correctly most of the time. We had better success
-in detecting the face using \`haarcascade\_frontalface\_default.xml\`
+in detecting the face using *haarcascade\_frontalface\_default.xml*
 and inferred the upper body. An example is shown below.
 
-[[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/cv2\_AGAIN\_c8\_upper\_body.png]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/cv2_AGAIN_c8_upper_body.png)
+<center><img src="https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/cv2_AGAIN_c8_upper_body.png" alt="Upper Body" style="height: 200px;width: 400px;"/></center>
 
-([[link]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/analysis/2_detect_upper_body_cv2.ipynb)
+([link](https://github.com/dasaditi/gesture_detection/blob/master/analysis/2_detect_upper_body_cv2.ipynb)
 to code)
 
 But this does not resolve the three issues we articulated above, so we
