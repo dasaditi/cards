@@ -392,10 +392,9 @@ Below are the skeleton videos that correspond to the two optical flow
 examples above:
 
 -   [Example 1](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c9_skeleton.mov)
-    > (have to download the .mov to view it)
+(have to download the .mov to view it)
 
--   [Example 2](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c4_skeleton.mov)
-    > (have to download the .mov to view it)
+-   [Example 2](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c4_skeleton.mov) (have to download the .mov to view it)
 
 As you can see, while OpenCV had trouble producing sensible optical flow
 for the second video example above, OpenPose was able to estimate the
