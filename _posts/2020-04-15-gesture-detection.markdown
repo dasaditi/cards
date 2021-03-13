@@ -317,7 +317,7 @@ to code)
 
 
 -   The good example:
-    <center><img src="https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/cv2_AGAIN_c9_optical_flow.gif" alt="modeling approach" style="height: 300px;width: 300px;"/></center>
+    <center><img src="./images/cv2_AGAIN_c9_optical_flow.gif" alt="modeling approach" style="height: 300px;width: 300px;"/></center>
  
 -   The bad example:
     > [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/cv2\_AGAIN\_c4\_optical\_flow.gif]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/cv2_AGAIN_c4_optical_flow.gif)
