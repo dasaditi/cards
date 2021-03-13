@@ -450,10 +450,10 @@ drastically increase the diversity of data going into the model.
 The standard data augmentation techniques we deploy include:
 
 -   Width/height shifting
-
     -   The signer may not be at the center of the frame, and we want to
          account for those scenarios in our model
-
+ 
+ 
 -   Zoom
     -   The signer may be closer or further away from the camera, and we
          want to account for those scenarios in our model
