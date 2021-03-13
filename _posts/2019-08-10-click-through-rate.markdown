@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Machine Learning: Click Through Rate Analysis"
-img: CTR.png
+img: ml-1.png
 categories: ML Projects
 excerpt: "The goal of this analysis to develop a working scalable predictive model that helps advertising technologies programmatically determine who to show a specific ad, with the goal of maximizing clicks. "
 ---
