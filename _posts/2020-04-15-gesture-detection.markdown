@@ -241,7 +241,7 @@ OpenCV provides a two-step process to track feature points in a video.
 flow estimation method.
 
 There are three key parameters in
-\[cv2.goodFeaturesToTrack()]{.underline}](https://docs.opencv.org/2.4/modules/imgproc/doc/feature_detection.html?highlight=goodfeaturestotrack#goodfeaturestotrack)\`
+\[cv2.goodFeaturesToTrack()](https://docs.opencv.org/2.4/modules/imgproc/doc/feature_detection.html?highlight=goodfeaturestotrack#goodfeaturestotrack)\`
 that we can specify to increase or decrease the number of key points
 detected:
 
