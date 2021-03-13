@@ -96,7 +96,7 @@ gloves at all times.
 
 ### B. Finger spelling sequence recognition from videos
 
-<center><img src="../images/gs2.png" alt="spelling recognition" style="height: 300px;width: 300px;"/></center>
+<center><img src="../images/gs2.png" alt="spelling recognition" style="height: 200px;width: 400px;"/></center>
 
  As per the ideas presented by Shi, Del Rio \[3\] and others, most of
  the research done in this area involves a sequence model which
@@ -107,7 +107,7 @@ gloves at all times.
 
 ### C. Word level sign language action classification from videos
 
-<center><img src="../images/gs3.png" alt="word level action" style="height: 300px;width: 300px;"/></center>
+<center><img src="../images/gs3.png" alt="word level action" style="height: 300px;width: 400px;"/></center>
 
 This category of sign language interpretation involves using videos which indicate an action. We do not use finger spelling here, but rather an action which directly corresponds with the word being
  indicated. For e.g. the word "BICYCLE" (a noun) is indicated as above.
