@@ -366,7 +366,7 @@ detect the upper body correctly most of the time. We had better success
 in detecting the face using *haarcascade\_frontalface\_default.xml*
 and inferred the upper body. An example is shown below.
 
-<center><img src="https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/cv2_AGAIN_c8_upper_body.png" alt="Upper Body" style="height: 200px;width: 400px;"/></center>
+<center><img src="../images/cv2_AGAIN_c8_upper_body.png" alt="Upper Body" style="height: 200px;width: 400px;"/></center>
 
 ([link](https://github.com/dasaditi/gesture_detection/blob/master/analysis/2_detect_upper_body_cv2.ipynb)
 to code)
