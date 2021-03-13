@@ -124,14 +124,12 @@ This category of sign language interpretation involves using videos which indica
  the language. Also, the dataset mentioned and used in the paper
  (ASLLVD dataset) is the primary dataset used in the project.
 
-## Datasets
 
+## Datasets
 
 The dataset used in the project was the ASLLVD (American sign language
 lexicon video dataset) present here:
-
 [[http://csr.bu.edu/asl/asllvd/annotate/index.html]{.underline}](http://csr.bu.edu/asl/asllvd/annotate/index.html)
-
 The dataset has videos captured using four synchronized cameras,
 providing: a side view of the signer, a close-up of the head region, a
 half-speed high resolution front view, and a full resolution front view.
