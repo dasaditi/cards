@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Deep Learning : Sign Language Action Detection from Video data"
+title:  "Deep Learning : Sign Language Action Detection"
 img: gesture-3.png
 categories: ML Projects
 excerpt: "Here we explore, a variety of techniques using deep learning networks for sign language recognition.We also describe the process of engineering an end-to-end solution - from data gathering and pre-processing to model development, cloud training and edge device deployment in this paper."
