@@ -56,27 +56,20 @@ categories based on the type of data being processed. The categories
 also reflect the nature of the problem being solved.  
 
 
-a. Single letter recognition using image data
+-   a. Single letter recognition using image data
 
-b. Finger spelling sequence recognition from videos
+- b. Finger spelling sequence recognition from videos
 
-c. Word level sign language action classification from videos
+- c. Word level sign language action classification from videos
 
-d. Sentence construction from type b and type c data described above
+- d. Sentence construction from type b and type c data described above
 
 <!-- -->
 
-a.  **Single letter recognition using image data**
+### A. Single letter recognition using image data   
 
-+-----------------------------------+-----------------------------------+
-| ![](media/image6.png){width="1.36 | > **L**                           |
-| 82010061242345in"                 |                                   |
-| height="1.537374234470691in"}     |                                   |
-+===================================+===================================+
-| ![](media/image4.png){width="1.35 | > **C**                           |
-| 41666666666667in"                 |                                   |
-| height="1.4861111111111112in"}    |                                   |
-+-----------------------------------+-----------------------------------+
+<center><img src="../images/gs1.png" alt="single letter recognition" /></center>
+
 
 > The earliest work in this area involved the usage of "data gloves".
 > These systems mostly concentrated on finger signing in which the user
