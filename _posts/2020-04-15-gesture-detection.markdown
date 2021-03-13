@@ -68,7 +68,7 @@ also reflect the nature of the problem being solved.
 
 ### A. Single letter recognition using image data   
 
-<center><img src="../images/gs1.png" alt="single letter recognition" style="height: 200px;width: 200px;"/></center>
+<center><img src="../images/gs1.png" alt="single letter recognition" style="height: 300px;width: 300px;"/></center>
 
 
 The earliest work in this area involved the usage of "data gloves".
