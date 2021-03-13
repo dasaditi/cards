@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: Hi there, I am Aditi!
 img: ad.jpg
 permalink: /about/
 ---
