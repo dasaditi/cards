@@ -588,10 +588,7 @@ classification. There are many variations of ResNet and EfficientNet, we
 selected ResNet50 and EfficientNetB0 for our analysis. Below is a
 comparison of the number of parameters in those two models:
 
-  \# of Trainable Parameters   ResNet50   EfficientNetB0
-  ---------------------------- ---------- ----------------
-  Transfer Learning            38.9K      24.3K
-  Retrain Weights              23.6M      4.0M
+<center><img src="../images/gs8.png"  style="height:400px;width:800px;"/></center>
 
 As shown in the table above, ResNet50 requires more trainable parameters
 compared to EfficientNetB0, especially when all weights need to be
@@ -614,11 +611,8 @@ better with training accuracy close to 90% and test accuracy of 74%.
 The final specification of our model is:
 
 -   Input = (224, 224, 3)
-
 -   Batch size = 32
-
 -   \# of epochs = 15
-
 -   \# of trainable parameters = 4,031,887
 
 The model is quite stable and not much hyperparameter tuning was
