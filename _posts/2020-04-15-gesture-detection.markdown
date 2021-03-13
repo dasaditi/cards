@@ -75,28 +75,28 @@ The earliest work in this area involved the usage of "data gloves".
 These systems mostly concentrated on finger signing in which the user
 spells each word with finger signs corresponding to the letter of the
 alphabet. In addition, there was an inconvenience of wearing the data
-gloves at all times.
+gloves at all times.  
 
-> A more "model-based approach" uses hidden markov models (HMMs) with
-> the assumption that only coarse grained features of hand-shape,
-> orientation and trajectory are sufficient to produce reasonably
-> accurate results.
->
-> Thad Starner and Alex Pentland\[1\] is a notable reference in this
-> area.
->
-> Most of the modern work in this area involves capturing images and
-> extracting features using Convolutional Neural Networks.
->
-> For e.g. Tao, Leu and Yin\[2\] use a CNN model with multi view
-> augmentation and inference fusion. The main emphasis here is on depth
-> images which contain distance information from the camera plane to the
-> objects in camera view. A lot of image transformation techniques are
-> used - rotating, scaling, shifting, flipping, shearing etc. A multi
-> view augmented strategy is then used to generate additional images
-> from multiple perspectives. The model consists of a CNN layer for
-> feature extraction with a fully connected layer and a softmax function
-> for classification.
+ A more "model-based approach" uses hidden markov models (HMMs) with
+ the assumption that only coarse grained features of hand-shape,
+ orientation and trajectory are sufficient to produce reasonably
+ accurate results.
+
+ Thad Starner and Alex Pentland\[1\] is a notable reference in this
+ area.<br>
+    
+ Most of the modern work in this area involves capturing images and
+ extracting features using Convolutional Neural Networks.
+
+ For e.g. Tao, Leu and Yin\[2\] use a CNN model with multi view
+ augmentation and inference fusion. The main emphasis here is on depth
+ images which contain distance information from the camera plane to the
+ objects in camera view. A lot of image transformation techniques are
+ used - rotating, scaling, shifting, flipping, shearing etc. A multi
+ view augmented strategy is then used to generate additional images
+ from multiple perspectives. The model consists of a CNN layer for
+ feature extraction with a fully connected layer and a softmax function
+ for classification.
 
 b.  **Finger spelling sequence recognition from videos**
 
