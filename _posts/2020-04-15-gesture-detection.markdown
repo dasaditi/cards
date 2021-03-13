@@ -641,26 +641,18 @@ instance with the following configuration.
 
 **Hardware:**
 
-NVIDIA TESLA P100
-
-Image: Ubuntu Linux 18.04
-
-Size: 8 vCPU
-
-Memory: 60 GB
+- NVIDIA TESLA P100
+- Image: Ubuntu Linux 18.04
+- Size: 8 vCPU
+- Memory: 60 GB
 
 **Software setup:**
 
-Ubuntu Linux 18.04
-
-CUDA Release 10.2 - NVIDIA GPU Version
-
-OpenCV 3.2
-
-OpenPose 1.6 built from source:
-https://github.com/CMU-Perceptual-Computing-Lab/openpose
-
-s3fs-fuse from <https://github.com/s3fs-fuse/s3fs-fuse>
+- Ubuntu Linux 18.04
+- CUDA Release 10.2 - NVIDIA GPU Version
+- OpenCV 3.2
+- OpenPose 1.6 built from source: https://github.com/CMU-Perceptual-Computing-Lab/openpose
+- s3fs-fuse from <https://github.com/s3fs-fuse/s3fs-fuse>
 
 The overall workflow on the P100 using AWS s3 and the primary storage
 layer has been shown below:
