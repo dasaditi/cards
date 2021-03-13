@@ -665,7 +665,7 @@ s3fs-fuse from <https://github.com/s3fs-fuse/s3fs-fuse>
 The overall workflow on the P100 using AWS s3 and the primary storage
 layer has been shown below:
 
-![](media/image10.png){width="6.5in" height="4.875in"}
+<center><img src="../images/gs5.png"  style="height:400px;width:600px;"/></center>
 
 ## Model Inference on TX2
 
