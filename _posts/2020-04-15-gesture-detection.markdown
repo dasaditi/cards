@@ -34,13 +34,13 @@ can be immensely effective.
 Such a tool would allow automatic translation from sign language to a
 written language like English. Two major use cases come to mind.
 
--   One or more hearing person(s) without any sign language skills
-    > trying to interpret the meaning of a word/sentence from a
-    > hearing-impaired person's sign language indication.
+>   One or more hearing person(s) without any sign language skills
+     trying to interpret the meaning of a word/sentence from a
+     hearing-impaired person's sign language indication.
 
--   One or more hearing impaired person(s) without sign language skills
-    > trying to interpret the meaning of a word/sentence from a
-    > hearing-impaired person's sign language indication
+>   One or more hearing impaired person(s) without sign language skills
+     trying to interpret the meaning of a word/sentence from a
+     hearing-impaired person's sign language indication
 
 In both of these cases, there is a language barrier between the conveyer
 of the message and the recipient of the message. We aim to bridge this
