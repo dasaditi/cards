@@ -241,7 +241,7 @@ OpenCV provides a two-step process to track feature points in a video.
 flow estimation method.
 
 There are three key parameters in
-[cv2.goodFeaturesToTrack()](https://docs.opencv.org/2.4/modules/imgproc/doc/feature_detection.html?highlight=goodfeaturestotrack#goodfeaturestotrack)`
+[cv2.goodFeaturesToTrack()](https://docs.opencv.org/2.4/modules/imgproc/doc/feature_detection.html?highlight=goodfeaturestotrack#goodfeaturestotrack)
 that we can specify to increase or decrease the number of key points
 detected:
 
@@ -279,7 +279,7 @@ temporal information can be captured by the second step,
 the optical flow.
 
 There are two key parameters in
-\`[[cv2.calcOpticalFlowPyrLK()]{.underline}](https://docs.opencv.org/2.4/modules/video/doc/motion_analysis_and_object_tracking.html#calcopticalflowpyrlk)\`
+[cv2.calcOpticalFlowPyrLK()](https://docs.opencv.org/2.4/modules/video/doc/motion_analysis_and_object_tracking.html#calcopticalflowpyrlk)
 that dictates how movement is tracked:
 
 -   *winSize*
