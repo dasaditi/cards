@@ -317,11 +317,10 @@ to code)
 
 
 -   The good example:
-    <center><img src="./images/cv2_AGAIN_c9_optical_flow.gif" alt="modeling approach" style="height: 300px;width: 300px;"/></center>
- 
+     ![Alt Text](../images/cv2_AGAIN_c9_optical_flow.gif)
 -   The bad example:
-    > [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/cv2\_AGAIN\_c4\_optical\_flow.gif]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/cv2_AGAIN_c4_optical_flow.gif)
-
+  ![Alt Text](../images/cv2_AGAIN_c4_optical_flow.gif)
+ 
 In the first (good) example, OpenCV detected key points in the signer's
 neck, face, knuckles, finger tips, and thighs, and was able to track the
 hand movement almost perfectly the first few frames. When the signer's
