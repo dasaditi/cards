@@ -68,15 +68,15 @@ also reflect the nature of the problem being solved.
 
 ### A. Single letter recognition using image data   
 
-<center><img src="../images/gs1.png" alt="single letter recognition" /></center>
+<center><img src="../images/gs1.png" alt="single letter recognition" style="height: 200px;width: 200px;"/></center>
 
 
-> The earliest work in this area involved the usage of "data gloves".
-> These systems mostly concentrated on finger signing in which the user
-> spells each word with finger signs corresponding to the letter of the
-> alphabet. In addition, there was an inconvenience of wearing the data
-> gloves at all times.
->
+The earliest work in this area involved the usage of "data gloves".
+These systems mostly concentrated on finger signing in which the user
+spells each word with finger signs corresponding to the letter of the
+alphabet. In addition, there was an inconvenience of wearing the data
+gloves at all times.
+
 > A more "model-based approach" uses hidden markov models (HMMs) with
 > the assumption that only coarse grained features of hand-shape,
 > orientation and trajectory are sufficient to produce reasonably
