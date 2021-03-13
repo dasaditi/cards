@@ -53,15 +53,16 @@ camera.
 
 Over the years, work done in this area broadly falls into four
 categories based on the type of data being processed. The categories
-also reflect the nature of the problem being solved.
+also reflect the nature of the problem being solved.  
 
-    a.  Single letter recognition using image data
 
-    b.  Finger spelling sequence recognition from videos
+a. Single letter recognition using image data
 
-    c.  Word level sign language action classification from videos
+b. Finger spelling sequence recognition from videos
 
-    d.  Sentence construction from type b and type c data described above
+c. Word level sign language action classification from videos
+
+d. Sentence construction from type b and type c data described above
 
 <!-- -->
 
