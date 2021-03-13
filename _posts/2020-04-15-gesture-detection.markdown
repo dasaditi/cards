@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Sign Language Action Detection from Video data"
+title:  "Deep Learning : Sign Language Action Detection from Video data"
 img: gesture-3.png
 categories: ML Projects
 excerpt: "Here we explore, a variety of techniques using deep learning networks for sign language recognition.We also describe the process of engineering an end-to-end solution - from data gathering and pre-processing to model development, cloud training and edge device deployment in this paper."
 ---
 
 
-# Abstract
+## Abstract
 
 
 The ability to use deep learning networks for sign language recognition
@@ -20,7 +20,7 @@ therein. We also describe the process of engineering an end-to-end
 solution - from data gathering and pre-processing to model development,
 cloud training and edge device deployment in this paper.
 
-# Introduction and motivation
+## Introduction and motivation
 
 
 There are close to 500 million hearing-impaired persons in the world
@@ -48,8 +48,8 @@ gap by implementing a model with reasonable accuracy, trained on an
 appropriate sign language dataset and deploying it on a device with a
 camera.
 
-**Research and Related work**
-=============================
+## Research and Related work
+
 
 Over the years, work done in this area broadly falls into four
 categories based on the type of data being processed. The categories
@@ -139,8 +139,8 @@ height="2.8366819772528435in"}
 > the language. Also, the dataset mentioned and used in the paper
 > (ASLLVD dataset) is the primary dataset used in the project.
 
-**Datasets**
-============
+## Datasets
+
 
 The dataset used in the project was the ASLLVD (American sign language
 lexicon video dataset) present here:
@@ -158,8 +158,8 @@ some words, there are multiple variations of sign languages. After
 removing obscure variation, we are left with 128 videos, of which 105
 videos are used as training and 23 videos are used as test.
 
-**Different Modeling Approaches**
-=================================
+## Different Modeling Approaches
+
 
 The following modelling approaches were tried with the main evaluation
 criteria being the validation accuracy. In some cases (as shown below),
@@ -205,8 +205,8 @@ Based on the above findings, it was decided that EfficientNet with
 open-pose and optical flow were the best candidates for deploying the
 model on TX2.
 
-**Final model and inspiration**
-===============================
+## Final model and inspiration
+
 
 **[Model inspiration]{.underline}**
 
@@ -687,8 +687,8 @@ important in achieving the final test accuracy of 74%. When we only
 deployed the standard data augmentation techniques with the same final
 model specification, the test accuracy was less than 30%.
 
-**Cloud Configuration**
-=======================
+## Cloud Configuration
+
 
 Preprocessing and model training was done on an IBM cloud based P100
 instance with the following configuration.
@@ -721,8 +721,8 @@ layer has been shown below:
 
 ![](media/image10.png){width="6.5in" height="4.875in"}
 
-**Model Inference on TX2**
-==========================
+## Model Inference on TX2
+
 
 Jetson TX2 is the most power-efficient embedded AI computing device.
 This 7.5-watt supercomputer on a module brings true AI computing at the
@@ -797,7 +797,7 @@ move the inference to cloud with a better memory and CPU
 configuration.Each frame rendered by camera will be sent to cloud for
 processing with OpenPose and inference.
 
-**Conclusion and Future Work**
+## Conclusion and Future Work
 ==============================
 
 In this paper, we proposed a novel approach of converting videos to a
@@ -830,8 +830,8 @@ and pass it through EfficientNet as a depth parameter.
     > only captures the frame might improve the inference time
     > significantly.
 
-**References**
-==============
+## References
+
 
 \[1\]
 
