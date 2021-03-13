@@ -455,39 +455,38 @@ The standard data augmentation techniques we deploy include:
          account for those scenarios in our model
 
 -   Zoom
-
     -   The signer may be closer or further away from the camera, and we
          want to account for those scenarios in our model
+
 
 Standard data augmentation techniques that are not used by our model:
 
 -   Rotation
-
     -   Sign languages are conducted in a standardized position. Meaning
          might change if we rotate the optical flow.
 
--   Horizontal flip
 
+-   Horizontal flip
     -   All the signers in our training/test videos are right-handed.
          Horizonal flip would not help improve the model performance.
 
--   Vertical flip
 
+-   Vertical flip
     -   We do not expect a signer to appear upside down in our videos or
          future application.
 
--   Channel shift
 
+-   Channel shift
     -   The choice of colors in optical flow has temporal meaning.
          Channel shift will overthrow the color design.
 
--   Brightness
 
+-   Brightness
     -   The choice of colors in optical flow has temporal meaning.
          Adjustment in brightness will overthrow the color design.
 
-We also deploy additional data augmentation techniques so that optical
-flow can capture as much relevant information as it possibly can from
+
+We also deploy additional data augmentation techniques so that optical flow can capture as much relevant information as it possibly can from
 the video.
 
 1.  Optical flow simulation based on OpenPose confidence
@@ -506,22 +505,22 @@ the video.
 
     c.  Here are three steps we took for simulation
 
-        i.  The first step to simulation is to make an assumption on the
+        - The first step to simulation is to make an assumption on the
              distribution of key point location. Without additional
              information, the best distribution assumption we can make
              is bivariate normal distribution with correlation
              coefficient of 0 and equal variance.
 
-        ii. Given the confidence score for the estimated pixel location,
+        - Given the confidence score for the estimated pixel location,
              we can estimate the variance of \`x\` and \`y\`.
 
-        iii. Given the distribution assumption and estimated variance,
+        - Given the distribution assumption and estimated variance,
              we can calculate the possibilities that a given key point
              lands on a given pixel in a frame
 
 2.  Color gradient
 
-    d.  Based on our literature review of optical flow, prior studies
+    a.  Based on our literature review of optical flow, prior studies
          only used a singular color to represent optical flow, with red
          or green being the most common color choice. Optical flow
          depicted using a singular color doesn't contain information
@@ -531,7 +530,7 @@ the video.
          temporal information in optical flow, we used color gradient
          to convey the direction of motion.
 
-    e.  For primary colors (i.e., red, green, blue), color gradients can
+    b.  For primary colors (i.e., red, green, blue), color gradients can
          be easily defined. For example, if we want the optical flow to
          start with a primary color (e.g., red) and end with a darker
          shade of that color, we would set the starting color as (255,
@@ -539,26 +538,20 @@ the video.
          gradients can be easily defined for secondary colors (i.e.,
          cyan = green+blue, magenta = red+blue, yellow = green+red).
 
-    f.  In total, we define seven colors and their corresponding
+    c.  In total, we define seven colors and their corresponding
          features are listed below:
 
-        iv. White: nose (Body 0)
-
-        v.  Red: elbows (Body 3 and 6)
-
-        vi. Green: wrists (Body 4 and 7)
-
-        vii. Blue: left thumb (Hand 4)
-
-        viii. Yellow: left index, middle, ring, and pinky fingers (Hand
+        - White: nose (Body 0)
+        - Red: elbows (Body 3 and 6)
+        - Green: wrists (Body 4 and 7)
+        - Blue: left thumb (Hand 4)
+        - Yellow: left index, middle, ring, and pinky fingers (Hand
              8, 12, 16, and 20)
-
-        ix. Magenta: right thumb (Hand 4)
-
-        x.  Cyan: right index, middle, ring, and pinky fingers (Hand 8,
+        - Magenta: right thumb (Hand 4)
+        - Cyan: right index, middle, ring, and pinky fingers (Hand 8,
              12, 16, and 20)
 
-    g.  Some signers perform signs faster or slowlier than others, which
+    d.  Some signers perform signs faster or slowlier than others, which
          results in some sign videos having less or more frames. Since
          signing speed is irrelevant to the meaning it communicates, so
          is the number of frames. To account for the difference in the
@@ -568,7 +561,7 @@ the video.
 
 3.  Overlay order
 
-    h.  We draw optical flow for one feature at a time. Depending on the
+    a.  We draw optical flow for one feature at a time. Depending on the
          order we draw the features, the optical flow may turn out to
          be slightly different. For example, if a red feature crosses a
          green feature, and we happen to draw the red feature first and
