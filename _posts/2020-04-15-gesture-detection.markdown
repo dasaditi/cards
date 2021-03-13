@@ -312,12 +312,13 @@ Below are two examples of how OpenCV draws optical flow frame by frame.
 Both signers below signed the word "again". Both videos were processed
 using the same set of parameters. The words and figures at the top left
 corner were excluded from being tracked as features.
-([[link]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/analysis/1_explore_optical_flow.ipynb)
+([link](https://github.com/dasaditi/gesture_detection/blob/master/analysis/1_explore_optical_flow.ipynb)
 to code)
 
--   The good example:
-    > [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/cv2\_AGAIN\_c9\_optical\_flow.gif]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/cv2_AGAIN_c9_optical_flow.gif)
 
+-   The good example:
+    <center><img src="https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/cv2_AGAIN_c9_optical_flow.gif" alt="modeling approach" style="height: 300px;width: 300px;"/></center>
+ 
 -   The bad example:
     > [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/cv2\_AGAIN\_c4\_optical\_flow.gif]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/cv2_AGAIN_c4_optical_flow.gif)
 
