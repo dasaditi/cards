@@ -253,60 +253,60 @@ detected:
 
     -   Effect: Increasing this parameter increases the number of
         features returned, subject to meeting the requirements
-        specified by \`qualityLevel\` and \`minDistance\`.
+        specified by *qualityLevel* and *minDistance*.
 
--   \`qualityLevel\`
+-   *qualityLevel*
 
     -   Definition: Parameter characterizing the minimal accepted
-        > quality of image corners
+         quality of image corners
 
     -   Effect: Lowering the quality level increases the number of
-        > features or noises returned. The difference between features
-        > and noises is that noises are points that do not contribute to
-        > the motion detection of interest.
+         features or noises returned. The difference between features
+         and noises is that noises are points that do not contribute to
+         the motion detection of interest.
 
--   \`minDistance\`
+-   *minDistance*
 
     -   Definition: Minimum possible Euclidean distance between the
-        > returned corners
+         returned corners
 
     -   Effect: Decreasing this parameter increases the concentration of
-        > high-quality features in small areas.
+         high-quality features in small areas.
 
 In general, the greater the number of features returned, the more
 temporal information can be captured by the second step,
-\`cv2.calcOpticalFlowPyrLK()\` but also the more noises are contained in
+*cv2.calcOpticalFlowPyrLK()* but also the more noises are contained in
 the optical flow.
 
 There are two key parameters in
 \`[[cv2.calcOpticalFlowPyrLK()]{.underline}](https://docs.opencv.org/2.4/modules/video/doc/motion_analysis_and_object_tracking.html#calcopticalflowpyrlk)\`
 that dictates how movement is tracked:
 
--   \`winSize\`
+-   *winSize*
 
     -   Definition: size of the search window at each pyramid level
 
     -   Effect: Increasing this parameter enables larger movement
-        > between frames to be captured
+         between frames to be captured
 
--   \`maxLevel\`
+-   *maxLevel*
 
     -   Definition: 0-based maximal pyramid level number; if set to 0,
-        > pyramids are not used (single level), if set to 1, two levels
-        > are used, and so on...
+         pyramids are not used (single level), if set to 1, two levels
+         are used, and so on...
 
     -   Why pyramids? Lucas-Kanade (L-K) method assumes that the
-        > displacement of the image contents between two consecutives
-        > frames is small, so L-K method itself (without pyrimads) does
-        > not work well with large motions. To circumvent this problem,
-        > OpenCV "runs optical flow at the top of pyramid first
-        > mitigates the problems caused by violating the L-K assumptions
-        > of small and coherent motion; the motion estimate from the
-        > preceding level is taken as the starting point for estimating
-        > motion at the next layer down"\[11\].
+         displacement of the image contents between two consecutives
+         frames is small, so L-K method itself (without pyrimads) does
+         not work well with large motions. To circumvent this problem,
+         OpenCV "runs optical flow at the top of pyramid first
+         mitigates the problems caused by violating the L-K assumptions
+         of small and coherent motion; the motion estimate from the
+         preceding level is taken as the starting point for estimating
+         motion at the next layer down"\[11\].
 
     -   Effect: Increasing this parameter enhances the ability to detect
-        > a wider range of motions.
+         a wider range of motions.
 
 Below are two examples of how OpenCV draws optical flow frame by frame.
 Both signers below signed the word "again". Both videos were processed
