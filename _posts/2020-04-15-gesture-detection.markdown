@@ -4,7 +4,6 @@ title:  "Deep Learning : Sign Language Action Detection"
 img: gesture-3.png
 categories: ML Projects
 excerpt: "Here we explore, a variety of techniques using deep learning for sign language recognition.In this paper, we proposed a novel approach of converting videos to a 2-d image of optical flow and run a neural network classifier for dynamic gesture recognition."
-
 ---
 
 ## Abstract
@@ -810,12 +809,12 @@ vision and pattern recognition*. 2017.
 8. [[https://www.researchgate.net/publication/233979332\_Application\_of\_Optical\_Flow\_in\_Automation]{.underline}](https://www.researchgate.net/publication/233979332_Application_of_Optical_Flow_in_Automation)
 \| Mohamed, Mahmoud. (2012). Application of Optical Flow in Automation.
 
-9.[[https://arxiv.org/pdf/1712.08416.pdf]{.underline}](https://arxiv.org/pdf/1712.08416.pdf)
+9. [[https://arxiv.org/pdf/1712.08416.pdf]{.underline}](https://arxiv.org/pdf/1712.08416.pdf)
 \| Sevilla-Lara, Laura, et al. \"On the integration of optical flow and
 action recognition.\" *German Conference on Pattern Recognition*.
 Springer, Cham, 2018.
 
-10.[[https://link.springer.com/chapter/10.1007%2F978-981-10-7895-8\_31]{.underline}](https://link.springer.com/chapter/10.1007%2F978-981-10-7895-8_31)
+10. [[https://link.springer.com/chapter/10.1007%2F978-981-10-7895-8\_31]{.underline}](https://link.springer.com/chapter/10.1007%2F978-981-10-7895-8_31)
 \| Gupta, Arpan, and M. Sakthi Balan. \"Action Recognition from Optical
 Flow Visualizations.\" *Proceedings of 2nd International Conference on
 Computer Vision & Image Processing*. Springer, Singapore, 2018.
