@@ -688,17 +688,17 @@ energy consumption, increases security, and improves data privacy.
 
 The plan for running inference in TX2 are as follows:
 
-1\) Download the trained EfficientNet Model from cloud
+1. Download the trained EfficientNet Model from cloud
 
-2\) Run real time camera on TX2 that captures the action we do through
+2.  Run real time camera on TX2 that captures the action we do through
 OpenCV
 
-3\) Every frame captured by OpenCV is passed through OpenPose for key
+3.  Every frame captured by OpenCV is passed through OpenPose for key
 point detection.
 
-4\) Run prediction for last \<n\> frames
+4.  Run prediction for last \<n\> frames
 
-5\) Display Prediction on UI
+5.  Display Prediction on UI
 
 We have played around the ideal number of \<n\> frames to do the
 prediction, have found 20-25 frames is ideal to get a good prediction.
