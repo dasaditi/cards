@@ -392,10 +392,10 @@ to an example JSON file).
 Below are the skeleton videos that correspond to the two optical flow
 examples above:
 
--   [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/openpose\_AGAIN\_c9\_skeleton.mov]{.underline}](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c9_skeleton.mov)
+-   [Example 1](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c9_skeleton.mov)
     > (have to download the .mov to view it)
 
--   [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/openpose\_AGAIN\_c4\_skeleton.mov]{.underline}](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c4_skeleton.mov)
+-   [Example 2](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c4_skeleton.mov)
     > (have to download the .mov to view it)
 
 As you can see, while OpenCV had trouble producing sensible optical flow
@@ -405,24 +405,24 @@ movement accurately. This demonstrates the effectiveness of OpenPose.
 Out of 67 (=25+21\*2) key points that OpenPose tracks, we are
 particularly interested in the following 15 key points (the reference to
 the key points numbers below can be found here:
-[[body]{.underline}](https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_pose_25.png)
+[body](https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_pose_25.png)
 and
-[[hand]{.underline}](https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_hand.png)):
+[hand](https://github.com/CMU-Perceptual-Computing-Lab/openpose/raw/master/doc/media/keypoints_hand.png)):
 
 -   Elbows (Body 3 and 6) and wrists (Body 4 and 7): All the sign
-    > languages are upper body movement, so elbows and wrists are
-    > important to keep track of.
+     languages are upper body movement, so elbows and wrists are
+     important to keep track of.
 
 -   Nose (Body 0): When a signer expresses a certain emotion, such as
-    > sadness, he/she will move his head slightly, so we also keep track
-    > of the nose movement.
+     sadness, he/she will move his head slightly, so we also keep track
+     of the nose movement.
 
 -   Finger tips (Hand 4, 8, 12, 16, and 20 for each hand): The movement
-    > of most hand key points are highly correlated, and OpenPose
-    > sometimes has trouble accurately tracking each key point. So we
-    > selected five finger tips to represent the hand motion.
+     of most hand key points are highly correlated, and OpenPose
+     sometimes has trouble accurately tracking each key point. So we
+     selected five finger tips to represent the hand motion.
 
-**[Manual Optical Flow]{.underline}**
+### Manual Optical Flow
 
 As mentioned above, OpenPose outputs one JSON file for each frame it
 processes. In the JSON file, OpenPose provides the estimated placement
@@ -434,16 +434,16 @@ Below are the two optical flows manually created based on OpenPose JSON
 files that correspond to the two OpenPose skeleton videos in the last
 section:
 
--   [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/openpose\_AGAIN\_c9\_sim0\_flow.png]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/openpose_AGAIN_c9_sim0_flow.png)
+-   [https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c9_sim0_flow.png](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c9_sim0_flow.png)
 
--   [[https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup\_videos\_images/openpose\_AGAIN\_c4\_sim0\_flow.png]{.underline}](https://github.com/AngelaWuGitHub/w251-project/blob/master/writeup_videos_images/openpose_AGAIN_c4_sim0_flow.png)
+-   [https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c4_sim0_flow.png](https://github.com/dasaditi/gesture_detection/blob/master/writeup_videos_images/openpose_AGAIN_c4_sim0_flow.png)
 
 Although they don't look exactly the same, they do bear a resemblance to
 each other.
 
 The choice of colors will be discussed in the next section.
 
-**[Data Augmentation]{.underline}**
+### Data Augmentation
 
 Data augmentation is an important strategy that enables modelers to
 drastically increase the diversity of data going into the model.
@@ -453,39 +453,39 @@ The standard data augmentation techniques we deploy include:
 -   Width/height shifting
 
     -   The signer may not be at the center of the frame, and we want to
-        > account for those scenarios in our model
+         account for those scenarios in our model
 
 -   Zoom
 
     -   The signer may be closer or further away from the camera, and we
-        > want to account for those scenarios in our model
+         want to account for those scenarios in our model
 
 Standard data augmentation techniques that are not used by our model:
 
 -   Rotation
 
     -   Sign languages are conducted in a standardized position. Meaning
-        > might change if we rotate the optical flow.
+         might change if we rotate the optical flow.
 
 -   Horizontal flip
 
     -   All the signers in our training/test videos are right-handed.
-        > Horizonal flip would not help improve the model performance.
+         Horizonal flip would not help improve the model performance.
 
 -   Vertical flip
 
     -   We do not expect a signer to appear upside down in our videos or
-        > future application.
+         future application.
 
 -   Channel shift
 
     -   The choice of colors in optical flow has temporal meaning.
-        > Channel shift will overthrow the color design.
+         Channel shift will overthrow the color design.
 
 -   Brightness
 
     -   The choice of colors in optical flow has temporal meaning.
-        > Adjustment in brightness will overthrow the color design.
+         Adjustment in brightness will overthrow the color design.
 
 We also deploy additional data augmentation techniques so that optical
 flow can capture as much relevant information as it possibly can from
@@ -494,54 +494,54 @@ the video.
 1.  Optical flow simulation based on OpenPose confidence
 
     a.  As mentioned in the previous section, the JSON file created by
-        > OpenPose includes the confidence score for estimated pixel
-        > location. From what we observed, OpenPose tends to be a lot
-        > more certain with nose, elbow, and wrist positions than
-        > fingertip positions. The confidence score for fingertip
-        > position is sometimes less than 20%.
+         OpenPose includes the confidence score for estimated pixel
+         location. From what we observed, OpenPose tends to be a lot
+         more certain with nose, elbow, and wrist positions than
+         fingertip positions. The confidence score for fingertip
+         position is sometimes less than 20%.
 
     b.  To get a more thorough representation of key point location, we
-        > decided to simulate pixel locations for each of the 15 key
-        > points and for each frame based on their confidence scores,
-        > and re-create optical flow.
+         decided to simulate pixel locations for each of the 15 key
+         points and for each frame based on their confidence scores,
+         and re-create optical flow.
 
     c.  Here are three steps we took for simulation
 
         i.  The first step to simulation is to make an assumption on the
-            > distribution of key point location. Without additional
-            > information, the best distribution assumption we can make
-            > is bivariate normal distribution with correlation
-            > coefficient of 0 and equal variance.
+             distribution of key point location. Without additional
+             information, the best distribution assumption we can make
+             is bivariate normal distribution with correlation
+             coefficient of 0 and equal variance.
 
         ii. Given the confidence score for the estimated pixel location,
-            > we can estimate the variance of \`x\` and \`y\`.
+             we can estimate the variance of \`x\` and \`y\`.
 
         iii. Given the distribution assumption and estimated variance,
-            > we can calculate the possibilities that a given key point
-            > lands on a given pixel in a frame
+             we can calculate the possibilities that a given key point
+             lands on a given pixel in a frame
 
 2.  Color gradient
 
     d.  Based on our literature review of optical flow, prior studies
-        > only used a singular color to represent optical flow, with red
-        > or green being the most common color choice. Optical flow
-        > depicted using a singular color doesn't contain information
-        > regarding the direction of motion. For example, moving a hand
-        > from left or right or from right to left would appear exactly
-        > the same in optical flow of one color. In order to enrich the
-        > temporal information in optical flow, we used color gradient
-        > to convey the direction of motion.
+         only used a singular color to represent optical flow, with red
+         or green being the most common color choice. Optical flow
+         depicted using a singular color doesn't contain information
+         regarding the direction of motion. For example, moving a hand
+         from left or right or from right to left would appear exactly
+         the same in optical flow of one color. In order to enrich the
+         temporal information in optical flow, we used color gradient
+         to convey the direction of motion.
 
     e.  For primary colors (i.e., red, green, blue), color gradients can
-        > be easily defined. For example, if we want the optical flow to
-        > start with a primary color (e.g., red) and end with a darker
-        > shade of that color, we would set the starting color as (255,
-        > 0, 0) and ending color as (50, 0, 0). Similarly, color
-        > gradients can be easily defined for secondary colors (i.e.,
-        > cyan = green+blue, magenta = red+blue, yellow = green+red).
+         be easily defined. For example, if we want the optical flow to
+         start with a primary color (e.g., red) and end with a darker
+         shade of that color, we would set the starting color as (255,
+         0, 0) and ending color as (50, 0, 0). Similarly, color
+         gradients can be easily defined for secondary colors (i.e.,
+         cyan = green+blue, magenta = red+blue, yellow = green+red).
 
     f.  In total, we define seven colors and their corresponding
-        > features are listed below:
+         features are listed below:
 
         iv. White: nose (Body 0)
 
@@ -552,36 +552,36 @@ the video.
         vii. Blue: left thumb (Hand 4)
 
         viii. Yellow: left index, middle, ring, and pinky fingers (Hand
-            > 8, 12, 16, and 20)
+             8, 12, 16, and 20)
 
         ix. Magenta: right thumb (Hand 4)
 
         x.  Cyan: right index, middle, ring, and pinky fingers (Hand 8,
-            > 12, 16, and 20)
+             12, 16, and 20)
 
     g.  Some signers perform signs faster or slowlier than others, which
-        > results in some sign videos having less or more frames. Since
-        > signing speed is irrelevant to the meaning it communicates, so
-        > is the number of frames. To account for the difference in the
-        > number of frames between videos, we set the starting and
-        > ending colors for a given feature to be the same. If a video
-        > has more frames, color progression is smaller between frames.
+         results in some sign videos having less or more frames. Since
+         signing speed is irrelevant to the meaning it communicates, so
+         is the number of frames. To account for the difference in the
+         number of frames between videos, we set the starting and
+         ending colors for a given feature to be the same. If a video
+         has more frames, color progression is smaller between frames.
 
 3.  Overlay order
 
     h.  We draw optical flow for one feature at a time. Depending on the
-        > order we draw the features, the optical flow may turn out to
-        > be slightly different. For example, if a red feature crosses a
-        > green feature, and we happen to draw the red feature first and
-        > the green feature second, we will see the intersection of the
-        > two features to be green. If we were to draw the green feature
-        > first and red feature second, the intersection would have been
-        > red. Since the overlay order does not convey any information
-        > about the motions, we randomize the order features are drawn
-        > so that Neural Network model does not accidentally pick up
-        > irrelevant information from the optical flow.
+         order we draw the features, the optical flow may turn out to
+         be slightly different. For example, if a red feature crosses a
+         green feature, and we happen to draw the red feature first and
+         the green feature second, we will see the intersection of the
+         two features to be green. If we were to draw the green feature
+         first and red feature second, the intersection would have been
+         red. Since the overlay order does not convey any information
+         about the motions, we randomize the order features are drawn
+         so that Neural Network model does not accidentally pick up
+         irrelevant information from the optical flow.
 
-**[Model: ResNet50 vs. EfficientNetB0]{.underline}**
+### Model: ResNet50 vs. EfficientNetB0
 
 Since we only have 105 training videos, we started by exploring transfer
 learning. ResNet and EfficientNet are both well known models for image
