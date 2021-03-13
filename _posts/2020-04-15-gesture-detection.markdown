@@ -20,8 +20,8 @@ therein. We also describe the process of engineering an end-to-end
 solution - from data gathering and pre-processing to model development,
 cloud training and edge device deployment in this paper.
 
-# Introduction and motivation**
-===============================
+# Introduction and motivation
+
 
 There are close to 500 million hearing-impaired persons in the world
 today. And while sign language is the most effective form of
