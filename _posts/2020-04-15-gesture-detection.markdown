@@ -3,8 +3,9 @@ layout: post
 title:  "Deep Learning : Sign Language Action Detection"
 img: gesture-3.png
 categories: ML Projects
----
 excerpt: "Here we explore, a variety of techniques using deep learning for sign language recognition.In this paper, we proposed a novel approach of converting videos to a 2-d image of optical flow and run a neural network classifier for dynamic gesture recognition."
+
+---
 
 ## Abstract
 
