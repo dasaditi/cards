@@ -588,7 +588,7 @@ classification. There are many variations of ResNet and EfficientNet, we
 selected ResNet50 and EfficientNetB0 for our analysis. Below is a
 comparison of the number of parameters in those two models:
 
-<center><img src="../images/gs8.png"  style="height:400px;width:800px;"/></center>
+<center><img src="../images/gs8.png"  /></center>
 
 As shown in the table above, ResNet50 requires more trainable parameters
 compared to EfficientNetB0, especially when all weights need to be
