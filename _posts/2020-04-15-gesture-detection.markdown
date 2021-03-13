@@ -148,7 +148,7 @@ criteria being the validation accuracy. In some cases (as shown below),
 training execution was preceded by a significant amount of
 pre-processing.
 
-<center><img src="../images/gs4.png" alt="modeling approach" style="height:600px;width: 700px;"/></center>
+<center><img src="../images/gs4.png" alt="modeling approach" style="height:600px"/></center>
 
 Based on the above findings, it was decided that EfficientNet with
 open-pose and optical flow were the best candidates for deploying the
