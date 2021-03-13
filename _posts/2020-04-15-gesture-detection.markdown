@@ -316,9 +316,9 @@ to code)
 
 
 -   The good example:
-     <center><img src="../images/cv2_AGAIN_c9_optical_flow.gif" alt="Approch" style="height: 400px;width:400px;"/></center>
+     <center><img src="../images/cv2_AGAIN_c9_optical_flow.gif" alt="Approch" style="height: 300px;width:400px;"/></center>
 -   The bad example:
-     <center><img src="../images/cv2_AGAIN_c4_optical_flow.gif" alt="Approch" style="height: 400px;width:400px;"/></center>
+     <center><img src="../images/cv2_AGAIN_c4_optical_flow.gif" alt="Approch" style="height: 300px;width:400px;"/></center>
  
 In the first (good) example, OpenCV detected key points in the signer's
 neck, face, knuckles, finger tips, and thighs, and was able to track the
