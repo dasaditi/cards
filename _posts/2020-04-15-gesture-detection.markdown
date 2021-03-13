@@ -118,7 +118,6 @@ This category of sign language interpretation involves using videos which indica
  which the authors propose a propose a new approach of Spatial-Temporal
  Graph Convolutional Network to sign language recognition based on the
  human skeletal movements.
-
  The method uses graphs to capture the signs dynamics in two
  dimensions, spatial and temporal, considering the complex aspects of
  the language. Also, the dataset mentioned and used in the paper
@@ -149,41 +148,7 @@ criteria being the validation accuracy. In some cases (as shown below),
 training execution was preceded by a significant amount of
 pre-processing.
 
-+-----------------+-----------------+-----------------+-----------------+
-| \#              | Model           | Features        | Validation      |
-|                 |                 |                 | accuracy        |
-+=================+=================+=================+=================+
-| 1.              | 3D              | Built and       | 27%             |
-|                 | Convolutional   | tested on       |                 |
-|                 | Neural Network  | UCF-101 dataset |                 |
-|                 | for video       |                 |                 |
-|                 | classification  | No transfer     |                 |
-|                 | using Keras     | learning        |                 |
-+-----------------+-----------------+-----------------+-----------------+
-| 2,              | 2-model         | Uses transfer   | 12%             |
-|                 | architecture:   | learning with   |                 |
-|                 | detector +      | ResNet          |                 |
-|                 | classifier      |                 |                 |
-+-----------------+-----------------+-----------------+-----------------+
-| 3.              | Open-pose with  | No transfer     | 28%             |
-|                 | Optical-flow    | learning        |                 |
-|                 | for             |                 |                 |
-|                 | pre-processing  |                 |                 |
-|                 | and CNN for     |                 |                 |
-|                 | classification  |                 |                 |
-+-----------------+-----------------+-----------------+-----------------+
-| 4.              | EfficientNet    | Open pose for   | 74%             |
-|                 |                 | pre-processing  |                 |
-|                 |                 |                 |                 |
-|                 |                 | Optical flow    |                 |
-|                 |                 | for image       |                 |
-|                 |                 | transformation  |                 |
-|                 |                 |                 |                 |
-|                 |                 | EfficientNet    |                 |
-|                 |                 | for             |                 |
-|                 |                 | classification  |                 |
-+-----------------+-----------------+-----------------+-----------------+
-
+<center><img src="../images/gs4.png" alt="word level action" style="height:600px;width: 700px;"/></center>
 Based on the above findings, it was decided that EfficientNet with
 open-pose and optical flow were the best candidates for deploying the
 model on TX2.
