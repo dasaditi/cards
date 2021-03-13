@@ -149,14 +149,13 @@ training execution was preceded by a significant amount of
 pre-processing.
 
 <center><img src="../images/gs4.png" alt="word level action" style="height:600px;width: 700px;"/></center>
+
 Based on the above findings, it was decided that EfficientNet with
 open-pose and optical flow were the best candidates for deploying the
 model on TX2.
 
 ## Final model and inspiration
 
-
-**[Model inspiration]{.underline}**
 
 Action classification is a harder problem to solve, and certainly less
 studied compared to image classification. Searching "image
@@ -184,47 +183,47 @@ optical flow with action recognition, but they all tackled this idea
 from different angles.
 
 -   Sevilla-Lara, Laura, et al.\[9\] argued that "trajectories are not
-    > the main source of information in optical flow" as they observed a
-    > small decrease in action recognition accuracy when they randomly
-    > shuffle the frames. This is not a very intuitive conclusion as one
-    > would have thought the temporal information contained in the
-    > optical flow is required to capture motion, and in turn essential
-    > for action recognition. It's our belief that the reason removing
-    > temporal information was inconsequential in their experiments was
-    > because the actions they tried to categorize ("ApplyEyeMakeup,
-    > Fencing, Knitting, PlayingGuitar, HorseRiding") are so
-    > distinctively different that "a single frame often contains enough
-    > information to correctly guess the category". The authors
-    > primarily utilized optical flow as "a representation of the scene"
-    > as opposed to actions themselves. This approach will not work for
-    > our use case because, without temporal information, all the sign
-    > videos are merely people waving their hands randomly.
+     the main source of information in optical flow" as they observed a
+     small decrease in action recognition accuracy when they randomly
+     shuffle the frames. This is not a very intuitive conclusion as one
+     would have thought the temporal information contained in the
+     optical flow is required to capture motion, and in turn essential
+     for action recognition. It's our belief that the reason removing
+     temporal information was inconsequential in their experiments was
+     because the actions they tried to categorize ("ApplyEyeMakeup,
+     Fencing, Knitting, PlayingGuitar, HorseRiding") are so
+     distinctively different that "a single frame often contains enough
+     information to correctly guess the category". The authors
+     primarily utilized optical flow as "a representation of the scene"
+     as opposed to actions themselves. This approach will not work for
+     our use case because, without temporal information, all the sign
+     videos are merely people waving their hands randomly.
 
 -   Gupta, Arpan, and M. Sakthi Balan\[10\] fed Farneback dense optical
-    > flow from each two consecutive frames from each video into a CNN
-    > model and predicted the label by taking the majority vote. This
-    > approach produced accuracy lower than the state of the art\[1\] on
-    > the KTH data, and the authors contributed the lower accuracy to
-    > the use of one motion feature with consecutive frame pair optical
-    > flow.
+     flow from each two consecutive frames from each video into a CNN
+     model and predicted the label by taking the majority vote. This
+     approach produced accuracy lower than the state of the art\[1\] on
+     the KTH data, and the authors contributed the lower accuracy to
+     the use of one motion feature with consecutive frame pair optical
+     flow.
 
 -   The method proposed by Mahbub, Upal, Hafiz Imtiaz, and Md Atiqur
-    > Rahman Ahad.\[1\], as referenced in the paper above, is considered
-    > the state of the art for the action classification of the KTH
-    > data. There are four steps in the proposed method. The authors (a)
-    > used Lucas Kanade optical flow estimation method to detect
-    > movement; (b) applied RAndom SAmple Consensus (RANSAC) algorithm
-    > to prune the point of interested outputted from the optical
-    > flow; (c) divided each human subject into nxn blocks and
-    > calculated the average percentage of change in the number of
-    > interest points for each block; and (d) ran Euclidean Distance
-    > classifier or Support Vector Machine (SVM)-based classifier for
-    > action classification. In the KTH data, there are six actions:
-    > boxing, handclapping, running, jogging, handwaving and walking.
-    > This method has proven to be effective in detecting full body
-    > movement. However, whether it can be equally effective in
-    > distinguishing movement of a smaller scale (such as movement of
-    > arms, hands, and fingers only) is yet to be validated.
+     Rahman Ahad.\[1\], as referenced in the paper above, is considered
+     the state of the art for the action classification of the KTH
+     data. There are four steps in the proposed method. The authors (a)
+     used Lucas Kanade optical flow estimation method to detect
+     movement; (b) applied RAndom SAmple Consensus (RANSAC) algorithm
+     to prune the point of interested outputted from the optical
+     flow; (c) divided each human subject into nxn blocks and
+     calculated the average percentage of change in the number of
+     interest points for each block; and (d) ran Euclidean Distance
+     classifier or Support Vector Machine (SVM)-based classifier for
+     action classification. In the KTH data, there are six actions:
+     boxing, handclapping, running, jogging, handwaving and walking.
+     This method has proven to be effective in detecting full body
+     movement. However, whether it can be equally effective in
+     distinguishing movement of a smaller scale (such as movement of
+     arms, hands, and fingers only) is yet to be validated.
 
 The prior studies have shown that optical flow contains rich temporal
 information and can potentially be used as an input for action
