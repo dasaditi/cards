@@ -34,11 +34,11 @@ can be immensely effective.
 Such a tool would allow automatic translation from sign language to a
 written language like English. Two major use cases come to mind.
 
->   One or more hearing person(s) without any sign language skills
+-   One or more hearing person(s) without any sign language skills
      trying to interpret the meaning of a word/sentence from a
      hearing-impaired person's sign language indication.
 
->   One or more hearing impaired person(s) without sign language skills
+-   One or more hearing impaired person(s) without sign language skills
      trying to interpret the meaning of a word/sentence from a
      hearing-impaired person's sign language indication
 
@@ -55,13 +55,13 @@ Over the years, work done in this area broadly falls into four
 categories based on the type of data being processed. The categories
 also reflect the nature of the problem being solved.
 
-a.  Single letter recognition using image data
+    a.  Single letter recognition using image data
 
-b.  Finger spelling sequence recognition from videos
+    b.  Finger spelling sequence recognition from videos
 
-c.  Word level sign language action classification from videos
+    c.  Word level sign language action classification from videos
 
-d.  Sentence construction from type b and type c data described above
+    d.  Sentence construction from type b and type c data described above
 
 <!-- -->
 
